@@ -18,7 +18,7 @@
         }
         
         body {
-            font-family: 'Space Grotesk', sans-serif;
+            font-family: 'noto-sans', sans-serif;
             background-color: var(--dark);
             color: var(--light);
             scroll-behavior: smooth;
@@ -128,13 +128,17 @@
         <div class="container mx-auto px-4 py-3">
             <div class="flex justify-between items-center">
                 <!-- Logo -->
-                <div class="flex items-center space-x-3">
-                    <img src="assets/img/hfc-logo2.png" alt="Helpxion Fortsent Logo" class="w-12 h-12">
-                    <div>
-                        <h1 class="text-xl font-bold leading-tight">HELPXION <span class="gradient-text">FORTSENT</span></h1>
-                        <p class="text-xs text-gray-400">CYBERSECURITY</p>
+                <div class="flex items-center space-x-2">
+                    <img src="assets/img/hfc-logo2.png" alt="Helpxion Fortsent Logo" class="w-16 h-16">
+                    <div class="flex flex-col justify-center">
+                        <h1 class="text-xl font-bold leading-tight">
+                            HELPXION <span class="gradient-text">FORTSENT</span>
+                        </h1>
+                        <p class="text-xs text-gray-300">CYBERSECURITY</p>
                     </div>
                 </div>
+
+
 
                 <!-- Mobile Menu Button -->
                 <button id="mobile-menu-button" class="md:hidden text-gray-300 focus:outline-none">
@@ -183,8 +187,8 @@
         <div class="container mx-auto">
             <div class="flex flex-col lg:flex-row items-center">
                 <div class="lg:w-1/2 mb-12 lg:mb-0">
-                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
-                        Protección Digital <span class="gradient-text">Sin Compromisos</span>
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-semibold leading-tight mb-6">
+                        Protección Digital <span class="gradient-text">Avanzada</span>
                     </h1>
                     <p class="text-xl text-gray-300 mb-8">
                         Soluciones de ciberseguridad ofensiva y defensiva para individuos y empresas. Certificados, éticos y con responsabilidad social.
@@ -232,15 +236,27 @@
     </section>
 
     <!-- Trust Badges -->
-    <section class="py-12 bg-gray-800/50 border-y border-gray-700">
+    <section class="py-6 bg-gray-1000/50 border-y border-gray-700">
         <div class="container mx-auto px-4">
             <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16">
-                <img class="h-10 opacity-70 hover:opacity-100 transition" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/EC-Council_logo.png/800px-EC-Council_logo.png" alt="EC-Council">
-                <img class="h-10 opacity-70 hover:opacity-100 transition" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/ISC2_logo.png/800px-ISC2_logo.png" alt="ISC2">
-                <img class="h-10 opacity-70 hover:opacity-100 transition" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Offensive_Security_logo.svg/1200px-Offensive_Security_logo.svg.png" alt="Offensive Security">
-                <img class="h-10 opacity-70 hover:opacity-100 transition" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/ISO_Logo_%28Red%29.svg/1200px-ISO_Logo_%28Red%29.svg.png" alt="ISO 27001">
-                <img class="h-10 opacity-70 hover:opacity-100 transition" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/GDPR_Logo.svg/1200px-GDPR_Logo.svg.png" alt="GDPR Compliant">
+                <img class="h-12 opacity-70 hover:opacity-100 transition" src="https://www.tailorit.nl/wp-content/uploads/2023/09/ec-council_logo.png" alt="EC-Council">
+                <img class="h-10 opacity-70 hover:opacity-100 transition" src="https://phishbusteracademy.com/wp-content/uploads/2023/04/CompTIA-PenTest.png" alt="CompTIA-PenTest">
+                <img class="h-11 opacity-70 hover:opacity-100 transition" src="https://images.credly.com/images/ec81134d-e80b-4eb5-ae07-0eb8e1a60fcd/twitter_thumb_201604_image.png" alt="Offensive Security">
+                <img class="h-16 opacity-70 hover:opacity-100 transition" src="https://pos.nvncdn.com/22beae-131583/art/20240220_7SKsMvKU.png" alt="ISO 27001">
+                <img class="h-12 opacity-70 hover:opacity-100 transition" src="https://offload.media.kychub.com/wp-content/uploads/2025/01/30172957/GDPR-logo.png" alt="GDPR Compliant">
+                <img class="h-10 opacity-70 hover:opacity-100 transition" src="https://th.bing.com/th/id/R.39d95eecd6742f2522d7d24ab56a9b95?rik=xSx8slIZzUXhdA&pid=ImgRaw&r=0" alt="ISO/IEC 27017">
+                <img class="h-10 opacity-70 hover:opacity-100 transition" src="https://risk3sixty.com/wp-content/uploads/2022/12/ISO-27701-Badge.png" alt="ISO/IEC 27701">
+                <img class="h-10 opacity-70 hover:opacity-100 transition" src="https://www.nationalcsa.com/images/ccsp/ncsa-ccsp-certification-badge.png" alt="NCSA">
+                <img class="h-10 opacity-70 hover:opacity-100 transition" src="https://leads.com.bd/wp-content/uploads/2022/07/CISSP100DAY-760x762.png" alt="CISSP">
+                <img class="h-10 opacity-70 hover:opacity-100 transition" src="https://www.readynez.com/media/hdlafw30/certified-ethical-hacker.webp" alt="CEH">
+                <img class="h-10 opacity-70 hover:opacity-100 transition" src="https://images.squarespace-cdn.com/content/v1/5ebaaed9bb839b7b67d29b74/4a8c4bcb-9a59-43f5-8ad0-fc5a9756705b/SOC+2+For+Service+Organizations+Logo.png?format=1500w" alt="SOC 2">
+                <img class="h-10 opacity-70 hover:opacity-100 transition" src="https://alctraining.com.au/wp-content/uploads/2022/07/ATO-Badge-CISM.png" alt="CISM">
+                <img class="h-10 opacity-70 hover:opacity-100 transition" src="https://www.hudsoncourses.com/wp-content/uploads/2017/09/CompTIA-Security-Logo-600x499.png" alt="CompTIA-Security">
+                <img class="h-10 opacity-70 hover:opacity-100 transition" src="https://imatrixsys.com/wp-content/uploads/NIST-Certification.png" alt="NIST">
+
+
             </div>
+        </div>
         </div>
     </section>
 
