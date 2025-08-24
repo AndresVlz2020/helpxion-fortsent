@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Qué es Blue Team? - Ciberseguridad</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body {
+            background-image: url('../../assets/img/blue-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        
+        .tab-container {
+            transform: translateY(0);
+            transition: transform 0.3s ease;
+        }
+        
+        .tab-container:hover {
+            transform: translateY(-5px);
+        }
+        
+        .info-card {
+            box-shadow: 0 10px 30px rgba(109, 40, 217, 0.15);
+            transition: all 0.3s ease;
+        }
+        
+        .info-card:hover {
+            box-shadow: 0 15px 40px rgba(109, 40, 217, 0.25);
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #6D28D9, #8B5CF6);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .role-icon {
+            transition: all 0.3s ease;
+        }
+        
+        .role-card:hover .role-icon {
+            transform: scale(1.1);
+            color: #8B5CF6;
+        }
+        /* Animación de aparición */
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate-fade-in {
+            animation: fadeIn 0.8s ease forwards;
+        }
+        /* Animación para el borde brillante */
+        
+        @keyframes glow {
+            0% {
+                box-shadow: 0 0 5px rgba(139, 92, 246, 0.5);
+            }
+            50% {
+                box-shadow: 0 0 20px rgba(139, 92, 246, 0.8);
+            }
+            100% {
+                box-shadow: 0 0 5px rgba(139, 92, 246, 0.5);
+            }
+        }
+        
+        .glow-border {
+            animation: glow 3s infinite;
+        }
+    </style>
+</head>
+
+<body class="text-gray-800">
+    <div class="container mx-auto px-4 py-12 max-w-4xl">
+        <!-- Pestaña principal -->
+        <div class="tab-container bg-white rounded-xl overflow-hidden mb-8 glow-border">
+            <div class="bg-[#6D28D9] py-4 px-6 flex items-center">
+                <div class="w-3 h-3 bg-[#C4B5FD] rounded-full mr-2"></div>
+                <div class="w-3 h-3 bg-[#C4B5FD] rounded-full mr-2"></div>
+                <div class="w-3 h-3 bg-[#C4B5FD] rounded-full"></div>
+                <h1 class="text-white text-xl font-bold ml-4">¿Qué es Blue Team?</h1>
+            </div>
+
+            <div class="p-6 bg-[#F5F3FF]">
+                <div class="flex flex-col md:flex-row items-center mb-8 animate-fade-in">
+                    <div class="md:w-2/3 md:pr-8">
+                        <h2 class="text-3xl font-bold mb-4 gradient-text">Defendiendo el territorio digital</h2>
+                        <p class="text-lg mb-4">
+                            El <span class="font-semibold text-[#6D28D9]">Blue Team</span> es el grupo de profesionales de ciberseguridad encargado de <span class="font-semibold">defender</span> los sistemas, redes y datos de una organización contra ciberamenazas
+                            y ataques.
+                        </p>
+                        <p class="text-lg">
+                            Mientras el Red Team simula ataques para encontrar vulnerabilidades, el Blue Team se enfoca en
+                            <span class="font-semibold text-[#4C1D95]">fortalecer las defensas</span>, monitorear actividades sospechosas y responder a incidentes de seguridad.
+                        </p>
+                    </div>
+                    <div class="md:w-1/3 mt-6 md:mt-0 flex justify-center">
+                        <div class="bg-[#8B5CF6] p-4 rounded-full w-40 h-40 flex items-center justify-center">
+                            <i class="fas fa-shield-alt text-white text-6xl"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contenido informativo -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+            <!-- Objetivos del Blue Team -->
+            <div class="info-card bg-white p-6 rounded-xl animate-fade-in" style="animation-delay: 0.2s;">
+                <h3 class="text-xl font-bold text-[#4C1D95] mb-4 flex items-center">
+                    <i class="fas fa-bullseye mr-2"></i> Objetivos principales
+                </h3>
+                <ul class="space-y-3">
+                    <li class="flex items-start">
+                        <i class="fas fa-check-circle text-[#6D28D9] mt-1 mr-2"></i>
+                        <span>Proteger la infraestructura crítica y los datos sensibles</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check-circle text-[#6D28D9] mt-1 mr-2"></i>
+                        <span>Detectar y responder rápidamente a incidentes de seguridad</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check-circle text-[#6D28D9] mt-1 mr-2"></i>
+                        <span>Implementar y mantener controles de seguridad efectivos</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check-circle text-[#6D28D9] mt-1 mr-2"></i>
+                        <span>Educar a los usuarios sobre prácticas seguras</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Herramientas comunes -->
+            <div class="info-card bg-white p-6 rounded-xl animate-fade-in" style="animation-delay: 0.4s;">
+                <h3 class="text-xl font-bold text-[#4C1D95] mb-4 flex items-center">
+                    <i class="fas fa-tools mr-2"></i> Herramientas comunes
+                </h3>
+                <div class="grid grid-cols-2 gap-3">
+                    <span class="bg-[#F5F3FF] text-[#6D28D9] px-3 py-2 rounded-md text-sm font-medium">SIEM</span>
+                    <span class="bg-[#F5F3FF] text-[#6D28D9] px-3 py-2 rounded-md text-sm font-medium">Firewalls</span>
+                    <span class="bg-[#F5F3FF] text-[#6D28D9] px-3 py-2 rounded-md text-sm font-medium">IDS/IPS</span>
+                    <span class="bg-[#F5F3FF] text-[#6D28D9] px-3 py-2 rounded-md text-sm font-medium">Antivirus</span>
+                    <span class="bg-[#F5F3FF] text-[#6D28D9] px-3 py-2 rounded-md text-sm font-medium">EDR</span>
+                    <span class="bg-[#F5F3FF] text-[#6D28D9] px-3 py-2 rounded-md text-sm font-medium">SOAR</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Roles en un Blue Team -->
+        <div class="info-card bg-white p-6 rounded-xl mb-8 animate-fade-in" style="animation-delay: 0.6s;">
+            <h3 class="text-xl font-bold text-[#4C1D95] mb-6 text-center">Roles en un Blue Team</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="role-card bg-[#F5F3FF] p-4 rounded-lg text-center">
+                    <div class="role-icon bg-[#8B5CF6] w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <i class="fas fa-desktop text-white text-2xl"></i>
+                    </div>
+                    <h4 class="font-bold text-[#4C1D95]">Analista de SOC</h4>
+                    <p class="text-sm mt-2">Monitorea y responde a alertas de seguridad las 24/7</p>
+                </div>
+
+                <div class="role-card bg-[#F5F3FF] p-4 rounded-lg text-center">
+                    <div class="role-icon bg-[#8B5CF6] w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <i class="fas fa-user-shield text-white text-2xl"></i>
+                    </div>
+                    <h4 class="font-bold text-[#4C1D95]">Especialista en IR</h4>
+                    <p class="text-sm mt-2">Dirige la respuesta a incidentes de seguridad</p>
+                </div>
+
+                <div class="role-card bg-[#F5F3FF] p-4 rounded-lg text-center">
+                    <div class="role-icon bg-[#8B5CF6] w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <i class="fas fa-network-wired text-white text-2xl"></i>
+                    </div>
+                    <h4 class="font-bold text-[#4C1D95]">Ingeniero de Seguridad</h4>
+                    <p class="text-sm mt-2">Diseña e implementa controles de seguridad</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ciclo de vida de defensa -->
+        <div class="info-card bg-white p-6 rounded-xl animate-fade-in" style="animation-delay: 0.8s;">
+            <h3 class="text-xl font-bold text-[#4C1D95] mb-6 text-center">Ciclo de vida de defensa</h3>
+            <div class="flex flex-wrap justify-center">
+                <div class="w-full md:w-1/4 p-4 flex flex-col items-center">
+                    <div class="bg-[#6D28D9] w-14 h-14 rounded-full flex items-center justify-center text-white mb-2">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h4 class="font-semibold text-[#4C1D95]">Detección</h4>
+                    <p class="text-sm text-center mt-1">Identificar potenciales amenazas</p>
+                </div>
+
+                <div class="w-full md:w-1/4 p-4 flex flex-col items-center">
+                    <div class="bg-[#6D28D9] w-14 h-14 rounded-full flex items-center justify-center text-white mb-2">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h4 class="font-semibold text-[#4C1D95]">Protección</h4>
+                    <p class="text-sm text-center mt-1">Implementar defensas</p>
+                </div>
+
+                <div class="w-full md:w-1/4 p-4 flex flex-col items-center">
+                    <div class="bg-[#6D28D9] w-14 h-14 rounded-full flex items-center justify-center text-white mb-2">
+                        <i class="fas fa-bell"></i>
+                    </div>
+                    <h4 class="font-semibold text-[#4C1D95]">Respuesta</h4>
+                    <p class="text-sm text-center mt-1">Actuar ante incidentes</p>
+                </div>
+
+                <div class="w-full md:w-1/4 p-4 flex flex-col items-center">
+                    <div class="bg-[#6D28D9] w-14 h-14 rounded-full flex items-center justify-center text-white mb-2">
+                        <i class="fas fa-sync-alt"></i>
+                    </div>
+                    <h4 class="font-semibold text-[#4C1D95]">Recuperación</h4>
+                    <p class="text-sm text-center mt-1">Restaurar sistemas y aprender</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Pequeña interacción para mejorar la experiencia
+        document.addEventListener('DOMContentLoaded', function() {
+            const roleCards = document.querySelectorAll('.role-card');
+
+            roleCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px)';
+                    this.style.transition = 'transform 0.3s ease';
+                });
+
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+        });
+    </script>

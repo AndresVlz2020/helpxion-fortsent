@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,8 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
-        
-        :root {
+         :root {
             --primary: #6d28d9;
             --primary-dark: #5b21b6;
             --dark: #0f172a;
@@ -89,8 +89,13 @@
         }
         
         @keyframes blink {
-            from, to { opacity: 1; }
-            50% { opacity: 0; }
+            from,
+            to {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0;
+            }
         }
         
         .service-card:hover {
@@ -116,29 +121,28 @@
         }
     </style>
 </head>
+
 <body class="network-pattern">
     <!-- Header -->
     <header class="bg-gray-900/90 backdrop-blur-md fixed w-full z-50 border-b border-gray-800">
         <div class="container mx-auto px-4 py-3">
             <div class="flex justify-between items-center">
                 <!-- Logo -->
-                <div class="flex items-center space-x-2">
-                    <div class="hexagon w-10 h-10 gradient-bg flex items-center justify-center">
-                        <span class="text-white font-bold text-xl">HF</span>
-                    </div>
+                <div class="flex items-center space-x-3">
+                    <img src="assets/img/hfc-logo2.png" alt="Helpxion Fortsent Logo" class="w-12 h-12">
                     <div>
-                        <h1 class="text-xl font-bold">HELPXION <span class="gradient-text">FORTSENT</span></h1>
+                        <h1 class="text-xl font-bold leading-tight">HELPXION <span class="gradient-text">FORTSENT</span></h1>
                         <p class="text-xs text-gray-400">CYBERSECURITY</p>
                     </div>
                 </div>
-                
+
                 <!-- Mobile Menu Button -->
                 <button id="mobile-menu-button" class="md:hidden text-gray-300 focus:outline-none">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                     </svg>
                 </button>
-                
+
                 <!-- Desktop Navigation -->
                 <nav class="hidden md:flex space-x-8">
                     <a href="#home" class="text-gray-300 hover:text-white nav-link active-nav">Inicio</a>
@@ -148,14 +152,14 @@
                     <a href="#resources" class="text-gray-300 hover:text-white nav-link">Recursos</a>
                     <a href="#contact" class="text-gray-300 hover:text-white nav-link">Contacto</a>
                 </nav>
-                
+
                 <!-- CTA Buttons -->
                 <div class="hidden md:flex space-x-4">
                     <button onclick="window.location.href='#report'" class="px-4 py-2 bg-red-600 hover:bg-red-700 rounded-md text-white text-sm font-medium transition transform hover:scale-105 shadow-md hover:shadow-red-500/20">Reportar Incidente</button>
                     <button onclick="window.location.href='#consult'" class="px-4 py-2 bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 rounded-md text-white text-sm font-medium transition transform hover:scale-105 shadow-md hover:shadow-purple-500/20">Consulta Gratis</button>
                 </div>
             </div>
-            
+
             <!-- Mobile Menu -->
             <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4">
                 <div class="flex flex-col space-y-3">
@@ -183,8 +187,7 @@
                         Protección Digital <span class="gradient-text">Sin Compromisos</span>
                     </h1>
                     <p class="text-xl text-gray-300 mb-8">
-                        Soluciones de ciberseguridad ofensiva y defensiva para individuos y empresas. 
-                        Certificados, éticos y con responsabilidad social.
+                        Soluciones de ciberseguridad ofensiva y defensiva para individuos y empresas. Certificados, éticos y con responsabilidad social.
                     </p>
                     <div class="flex flex-wrap gap-4">
                         <a href="#services" class="px-6 py-3 bg-purple-600 hover:bg-purple-700 rounded-md text-white font-medium transition glow-hover">
@@ -251,7 +254,7 @@
                     Protección completa adaptada a tus necesidades, desde individuos hasta grandes corporaciones.
                 </p>
             </div>
-            
+
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Red Team Services -->
                 <div class="bg-gray-800/50 rounded-xl p-6 border border-gray-700 hover:border-purple-500 transition service-card">
@@ -273,11 +276,11 @@
                             <i class="fas fa-check-circle text-purple-500 mr-2"></i> Ingeniería social
                         </li>
                     </ul>
-                    <a href="#" class="text-purple-500 hover:text-purple-400 font-medium inline-flex items-center">
+                    <a href="nuestros servicios/red_team/redteam.html" class="text-purple-500 hover:text-purple-400 font-medium inline-flex items-center">
                         Saber más <i class="fas fa-arrow-right ml-2"></i>
                     </a>
                 </div>
-                
+
                 <!-- Blue Team Services -->
                 <div class="bg-gray-800/50 rounded-xl p-6 border border-gray-700 hover:border-purple-500 transition service-card">
                     <div class="w-12 h-12 bg-purple-600/20 rounded-lg flex items-center justify-center mb-4">
@@ -298,11 +301,11 @@
                             <i class="fas fa-check-circle text-purple-500 mr-2"></i> Respuesta a incidentes
                         </li>
                     </ul>
-                    <a href="#" class="text-purple-500 hover:text-purple-400 font-medium inline-flex items-center">
+                    <a href="nuestros servicios/blue_team/blueteam.html" class="text-purple-500 hover:text-purple-400 font-medium inline-flex items-center">
                         Saber más <i class="fas fa-arrow-right ml-2"></i>
                     </a>
                 </div>
-                
+
                 <!-- Free Support -->
                 <div class="bg-gray-800/50 rounded-xl p-6 border border-purple-500/50 transition service-card glow">
                     <div class="w-12 h-12 bg-purple-600/30 rounded-lg flex items-center justify-center mb-4">
@@ -469,19 +472,19 @@
                         <h3 class="text-2xl font-bold mb-6">Nuestros <span class="gradient-text">Números</span></h3>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div class="bg-gray-900/50 p-6 rounded-lg border border-gray-700">
-                                <div class="text-4xl font-bold text-purple-500 mb-2">250+</div>
+                                <div class="text-4xl font-bold text-purple-500 mb-2">0+</div>
                                 <div class="text-gray-300">Clientes Protegidos</div>
                             </div>
                             <div class="bg-gray-900/50 p-6 rounded-lg border border-gray-700">
-                                <div class="text-4xl font-bold text-purple-500 mb-2">98%</div>
+                                <div class="text-4xl font-bold text-purple-500 mb-2">0%</div>
                                 <div class="text-gray-300">Tasa de Satisfacción</div>
                             </div>
                             <div class="bg-gray-900/50 p-6 rounded-lg border border-gray-700">
-                                <div class="text-4xl font-bold text-purple-500 mb-2">500+</div>
+                                <div class="text-4xl font-bold text-purple-500 mb-2">0+</div>
                                 <div class="text-gray-300">Vulnerabilidades Detectadas</div>
                             </div>
                             <div class="bg-gray-900/50 p-6 rounded-lg border border-gray-700">
-                                <div class="text-4xl font-bold text-purple-500 mb-2">120+</div>
+                                <div class="text-4xl font-bold text-purple-500 mb-2">0+</div>
                                 <div class="text-gray-300">Casos Sociales Atendidos</div>
                             </div>
                         </div>
@@ -523,7 +526,7 @@
                             <i class="fas fa-check text-purple-500 mr-3"></i> Monitoreo de identidad
                         </li>
                         <li class="flex items-center">
-                            <i class="fas fa-check text-purple-500 mr-3"></i> Protección contra phishing
+                            <i class="fas fa-check text-purple-500 mr-3"></i> CyberShield personal
                         </li>
                         <li class="flex items-center">
                             <i class="fas fa-check text-purple-500 mr-3"></i> VPN premium
@@ -535,7 +538,7 @@
                             <i class="fas fa-check text-purple-500 mr-3"></i> 1 evaluación anual
                         </li>
                     </ul>
-                    <a href="#" class="w-full block text-center px-6 py-3 border border-purple-500 text-purple-500 hover:bg-purple-900/30 rounded-md font-medium transition">
+                    <a href="pagos/pago1.html" class="w-full block text-center px-6 py-3 border border-purple-500 text-purple-500 hover:bg-purple-900/30 rounded-md font-medium transition">
                         Seleccionar Plan
                     </a>
                 </div>
@@ -563,7 +566,7 @@
                             <i class="fas fa-check text-purple-500 mr-3"></i> Hasta 25 empleados
                         </li>
                     </ul>
-                    <a href="#" class="w-full block text-center px-6 py-3 bg-purple-600 hover:bg-purple-700 rounded-md text-white font-medium transition">
+                    <a href="pagos/pago2.html" class="w-full block text-center px-6 py-3 bg-purple-600 hover:bg-purple-700 rounded-md text-white font-medium transition">
                         Seleccionar Plan
                     </a>
                 </div>
@@ -699,27 +702,27 @@
                             <button type="submit" class="w-full px-6 py-3 bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 rounded-md text-white font-medium transition transform hover:scale-105 shadow-lg hover:shadow-purple-500/30 flex items-center justify-center">
                                 <i class="fas fa-lock mr-2"></i> Enviar Reporte de Forma Segura
                             </button>
+                </div>
+                </form>
+
+                <div class="mt-8 pt-6 border-t border-gray-700">
+                    <div class="flex flex-col md:flex-row items-center justify-between">
+                        <div class="mb-4 md:mb-0">
+                            <h4 class="font-bold mb-2">¿Qué sucede después?</h4>
+                            <p class="text-gray-400 text-sm">
+                                Recibirás un código de seguimiento único para consultar el estado de tu caso.
+                            </p>
                         </div>
-                    </form>
-                    
-                    <div class="mt-8 pt-6 border-t border-gray-700">
-                        <div class="flex flex-col md:flex-row items-center justify-between">
-                            <div class="mb-4 md:mb-0">
-                                <h4 class="font-bold mb-2">¿Qué sucede después?</h4>
-                                <p class="text-gray-400 text-sm">
-                                    Recibirás un código de seguimiento único para consultar el estado de tu caso.
-                                </p>
-                            </div>
-                            <div class="bg-gray-900/50 px-4 py-3 rounded-md border border-gray-700">
-                                <div class="flex items-center">
-                                    <i class="fas fa-info-circle text-purple-500 mr-2"></i>
-                                    <span class="text-sm text-gray-300">Todos los reportes son encriptados de extremo a extremo</span>
-                                </div>
+                        <div class="bg-gray-900/50 px-4 py-3 rounded-md border border-gray-700">
+                            <div class="flex items-center">
+                                <i class="fas fa-info-circle text-purple-500 mr-2"></i>
+                                <span class="text-sm text-gray-300">Todos los reportes son encriptados de extremo a extremo</span>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
         </div>
     </section>
 
@@ -733,7 +736,7 @@
                     Aprende a protegerte con nuestras guías, herramientas y contenido educativo.
                 </p>
             </div>
-            
+
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- Blog -->
                 <div class="bg-gray-800/50 rounded-xl p-6 border border-gray-700 hover:border-purple-500 transition">
@@ -750,7 +753,7 @@
                         </a>
                     </div>
                 </div>
-                
+
                 <!-- Guides -->
                 <div class="bg-gray-800/50 rounded-xl p-6 border border-gray-700 hover:border-purple-500 transition">
                     <div class="w-12 h-12 bg-purple-600/20 rounded-lg flex items-center justify-center mb-4">
@@ -766,7 +769,7 @@
                         <a href="#" class="block text-sm text-gray-300 hover:text-purple-400">Protección de identidad digital</a>
                     </div>
                 </div>
-                
+
                 <!-- Tools -->
                 <div class="bg-gray-800/50 rounded-xl p-6 border border-gray-700 hover:border-purple-500 transition">
                     <div class="w-12 h-12 bg-purple-600/20 rounded-lg flex items-center justify-center mb-4">
@@ -782,7 +785,7 @@
                         <a href="#" class="block text-sm text-gray-300 hover:text-purple-400">Generador de contraseñas seguras</a>
                     </div>
                 </div>
-                
+
                 <!-- Courses -->
                 <div class="bg-gray-800/50 rounded-xl p-6 border border-gray-700 hover:border-purple-500 transition">
                     <div class="w-12 h-12 bg-purple-600/20 rounded-lg flex items-center justify-center mb-4">
@@ -798,7 +801,7 @@
                         </a>
                     </div>
                 </div>
-                
+
                 <!-- Checklists -->
                 <div class="bg-gray-800/50 rounded-xl p-6 border border-gray-700 hover:border-purple-500 transition">
                     <div class="w-12 h-12 bg-purple-600/20 rounded-lg flex items-center justify-center mb-4">
@@ -814,7 +817,7 @@
                         </a>
                     </div>
                 </div>
-                
+
                 <!-- HFC Program -->
                 <div class="bg-gray-800/50 rounded-xl p-6 border border-purple-500/50 glow">
                     <div class="w-12 h-12 bg-purple-600/30 rounded-lg flex items-center justify-center mb-4">
@@ -845,7 +848,7 @@
                         Nuestro equipo está listo para responder tus preguntas y proporcionar soluciones a medida.
                     </p>
                 </div>
-                
+
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
                     <div>
                         <div class="bg-gray-800/50 rounded-xl p-8 border border-gray-700">
@@ -861,7 +864,7 @@
                                         <input type="email" class="w-full bg-gray-900 border border-gray-700 rounded-md px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-purple-500" required>
                                     </div>
                                 </div>
-                                
+
                                 <div>
                                     <label class="block text-gray-300 mb-2">Asunto *</label>
                                     <select class="w-full bg-gray-900 border border-gray-700 rounded-md px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-purple-500">
@@ -873,129 +876,129 @@
                                         <option value="other">Otro</option>
                                     </select>
                                 </div>
-                                
+
                                 <div>
                                     <label class="block text-gray-300 mb-2">Mensaje *</label>
                                     <textarea class="w-full bg-gray-900 border border-gray-700 rounded-md px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-purple-500 h-32" required></textarea>
                                 </div>
-                                
+
                                 <div class="pt-2">
                                     <button type="submit" class="w-full px-6 py-3 bg-purple-600 hover:bg-purple-700 rounded-md text-white font-medium transition glow-hover">
                         <i class="fas fa-paper-plane mr-2"></i> Enviar Mensaje
                     </button>
-                </div>
-            </form>
-            
-            <div class="mt-8 pt-6 border-t border-gray-700">
-                <h4 class="font-bold mb-4">Otras Formas de Contacto</h4>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div class="flex items-start">
-                        <div class="mr-4">
-                            <div class="w-10 h-10 bg-purple-600/20 rounded-lg flex items-center justify-center">
-                                <i class="fas fa-envelope text-purple-500"></i>
+                                </div>
+                            </form>
+
+                            <div class="mt-8 pt-6 border-t border-gray-700">
+                                <h4 class="font-bold mb-4">Otras Formas de Contacto</h4>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    <div class="flex items-start">
+                                        <div class="mr-4">
+                                            <div class="w-10 h-10 bg-purple-600/20 rounded-lg flex items-center justify-center">
+                                                <i class="fas fa-envelope text-purple-500"></i>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <h5 class="font-medium mb-1">Correo Encriptado</h5>
+                                            <p class="text-gray-400 text-sm">helpxionfortsentcol@gmail.com</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <div class="mr-4">
+                                            <div class="w-10 h-10 bg-purple-600/20 rounded-lg flex items-center justify-center">
+                                                <i class="fas fa-phone-alt text-purple-500"></i>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <h5 class="font-medium mb-1">Soporte Telefónico</h5>
+                                            <p class="text-gray-400 text-sm">+57 3122064708</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <div class="mr-4">
+                                            <div class="w-10 h-10 bg-purple-600/20 rounded-lg flex items-center justify-center">
+                                                <i class="fas fa-comments text-purple-500"></i>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <h5 class="font-medium mb-1">Chat en Vivo</h5>
+                                            <p class="text-gray-400 text-sm">Disponible 24/7</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <div class="mr-4">
+                                            <div class="w-10 h-10 bg-purple-600/20 rounded-lg flex items-center justify-center">
+                                                <i class="fas fa-map-marker-alt text-purple-500"></i>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <h5 class="font-medium mb-1">Oficinas</h5>
+                                            <p class="text-gray-400 text-sm">Colombia</p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div>
-                            <h5 class="font-medium mb-1">Correo Encriptado</h5>
-                            <p class="text-gray-400 text-sm">contacto@helpxionfortsent.com</p>
-                        </div>
                     </div>
-                    <div class="flex items-start">
-                        <div class="mr-4">
-                            <div class="w-10 h-10 bg-purple-600/20 rounded-lg flex items-center justify-center">
-                                <i class="fas fa-phone-alt text-purple-500"></i>
-                            </div>
-                        </div>
-                        <div>
-                            <h5 class="font-medium mb-1">Soporte Telefónico</h5>
-                            <p class="text-gray-400 text-sm">+1 (555) 123-4567</p>
-                        </div>
-                    </div>
-                    <div class="flex items-start">
-                        <div class="mr-4">
-                            <div class="w-10 h-10 bg-purple-600/20 rounded-lg flex items-center justify-center">
-                                <i class="fas fa-comments text-purple-500"></i>
-                            </div>
-                        </div>
-                        <div>
-                            <h5 class="font-medium mb-1">Chat en Vivo</h5>
-                            <p class="text-gray-400 text-sm">Disponible 24/7</p>
-                        </div>
-                    </div>
-                    <div class="flex items-start">
-                        <div class="mr-4">
-                            <div class="w-10 h-10 bg-purple-600/20 rounded-lg flex items-center justify-center">
-                                <i class="fas fa-map-marker-alt text-purple-500"></i>
-                            </div>
-                        </div>
-                        <div>
-                            <h5 class="font-medium mb-1">Oficinas</h5>
-                            <p class="text-gray-400 text-sm">Calle Seguridad 123, Cyber City</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    <div>
-        <div class="bg-gray-800/50 rounded-xl p-8 border border-gray-700 mb-8">
-            <h3 class="text-xl font-bold mb-6">Preguntas Frecuentes</h3>
-            <div class="space-y-4">
-                <div class="border-b border-gray-700 pb-4">
-                    <button class="flex justify-between items-center w-full text-left">
+
+                    <div>
+                        <div class="bg-gray-800/50 rounded-xl p-8 border border-gray-700 mb-8">
+                            <h3 class="text-xl font-bold mb-6">Preguntas Frecuentes</h3>
+                            <div class="space-y-4">
+                                <div class="border-b border-gray-700 pb-4">
+                                    <button class="flex justify-between items-center w-full text-left">
                         <span class="font-medium">¿Cómo sé si necesito servicios de ciberseguridad?</span>
                         <i class="fas fa-chevron-down text-purple-500 text-xs"></i>
                     </button>
-                    <div class="mt-2 text-gray-400 text-sm hidden">
-                        Todas las personas y empresas que manejan datos digitales necesitan protección. Ofrecemos evaluaciones gratuitas para determinar tus necesidades específicas.
-                    </div>
-                </div>
-                <div class="border-b border-gray-700 pb-4">
-                    <button class="flex justify-between items-center w-full text-left">
+                                    <div class="mt-2 text-gray-400 text-sm hidden">
+                                        Todas las personas y empresas que manejan datos digitales necesitan protección. Ofrecemos evaluaciones gratuitas para determinar tus necesidades específicas.
+                                    </div>
+                                </div>
+                                <div class="border-b border-gray-700 pb-4">
+                                    <button class="flex justify-between items-center w-full text-left">
                         <span class="font-medium">¿Qué certificaciones tienen sus expertos?</span>
                         <i class="fas fa-chevron-down text-purple-500 text-xs"></i>
                     </button>
-                    <div class="mt-2 text-gray-400 text-sm hidden">
-                        Nuestro equipo posee certificaciones como OSCP, CISSP, CEH, CISM, entre otras. Cada proyecto es asignado a profesionales con las credenciales adecuadas.
-                    </div>
-                </div>
-                <div class="border-b border-gray-700 pb-4">
-                    <button class="flex justify-between items-center w-full text-left">
+                                    <div class="mt-2 text-gray-400 text-sm hidden">
+                                        Nuestro equipo posee certificaciones como OSCP, CISSP, CEH, CISM, entre otras. Cada proyecto es asignado a profesionales con las credenciales adecuadas.
+                                    </div>
+                                </div>
+                                <div class="border-b border-gray-700 pb-4">
+                                    <button class="flex justify-between items-center w-full text-left">
                         <span class="font-medium">¿Cómo funciona el programa de apoyo gratuito?</span>
                         <i class="fas fa-chevron-down text-purple-500 text-xs"></i>
                     </button>
-                    <div class="mt-2 text-gray-400 text-sm hidden">
-                        Cualquier persona que sufra ciberacoso o amenazas puede reportarlo anónimamente. Nuestros expertos evaluarán el caso y proporcionarán orientación sin costo.
-                    </div>
-                </div>
-                <div class="border-b border-gray-700 pb-4">
-                    <button class="flex justify-between items-center w-full text-left">
+                                    <div class="mt-2 text-gray-400 text-sm hidden">
+                                        Cualquier persona que sufra ciberacoso o amenazas puede reportarlo anónimamente. Nuestros expertos evaluarán el caso y proporcionarán orientación sin costo.
+                                    </div>
+                                </div>
+                                <div class="border-b border-gray-700 pb-4">
+                                    <button class="flex justify-between items-center w-full text-left">
                         <span class="font-medium">¿Qué métodos de pago aceptan?</span>
                         <i class="fas fa-chevron-down text-purple-500 text-xs"></i>
                     </button>
-                    <div class="mt-2 text-gray-400 text-sm hidden">
-                        Aceptamos tarjetas de crédito/débito, transferencias bancarias, criptomonedas y pagos recurrentes. Todos los pagos son procesados de forma segura.
-                    </div>
-                </div>
-                <div class="border-b border-gray-700 pb-4">
-                    <button class="flex justify-between items-center w-full text-left">
+                                    <div class="mt-2 text-gray-400 text-sm hidden">
+                                        Aceptamos tarjetas de crédito/débito, transferencias bancarias, criptomonedas y pagos recurrentes. Todos los pagos son procesados de forma segura.
+                                    </div>
+                                </div>
+                                <div class="border-b border-gray-700 pb-4">
+                                    <button class="flex justify-between items-center w-full text-left">
                         <span class="font-medium">¿Ofrecen servicios de emergencia?</span>
                         <i class="fas fa-chevron-down text-purple-500 text-xs"></i>
                     </button>
-                    <div class="mt-2 text-gray-400 text-sm hidden">
-                        Sí, tenemos un equipo de respuesta a incidentes disponible 24/7 para atender emergencias de seguridad. Llama a nuestro número de soporte inmediato.
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="bg-gray-800/50 rounded-xl p-8 border border-gray-700">
-            <h3 class="text-xl font-bold mb-6">Solicitud de Consultoría</h3>
-            <form class="space-y-6" id="consult">
-                <div>
-                    <label class="block text-gray-300 mb-2">Tipo de Consultoría *</label>
-                    <select class="w-full bg-gray-900 border border-gray-700 rounded-md px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-purple-500">
+                                    <div class="mt-2 text-gray-400 text-sm hidden">
+                                        Sí, tenemos un equipo de respuesta a incidentes disponible 24/7 para atender emergencias de seguridad. Llama a nuestro número de soporte inmediato.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-gray-800/50 rounded-xl p-8 border border-gray-700">
+                            <h3 class="text-xl font-bold mb-6">Solicitud de Consultoría</h3>
+                            <form class="space-y-6" id="consult">
+                                <div>
+                                    <label class="block text-gray-300 mb-2">Tipo de Consultoría *</label>
+                                    <select class="w-full bg-gray-900 border border-gray-700 rounded-md px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-purple-500">
                         <option value="">Seleccionar...</option>
                         <option value="personal">Protección Personal</option>
                         <option value="business">Seguridad Empresarial</option>
@@ -1003,169 +1006,185 @@
                         <option value="incident">Respuesta a Incidentes</option>
                         <option value="other">Otro</option>
                     </select>
-                </div>
-                
-                <div>
-                    <label class="block text-gray-300 mb-2">Disponibilidad *</label>
-                    <div class="grid grid-cols-2 gap-4">
-                        <label class="inline-flex items-center">
+                                </div>
+
+                                <div>
+                                    <label class="block text-gray-300 mb-2">Disponibilidad *</label>
+                                    <div class="grid grid-cols-2 gap-4">
+                                        <label class="inline-flex items-center">
                             <input type="radio" class="form-radio text-purple-500" name="availability" value="weekday">
                             <span class="ml-2 text-gray-300">Día Laboral</span>
                         </label>
-                        <label class="inline-flex items-center">
+                                        <label class="inline-flex items-center">
                             <input type="radio" class="form-radio text-purple-500" name="availability" value="weekend">
                             <span class="ml-2 text-gray-300">Fin de semana</span>
                         </label>
-                        <label class="inline-flex items-center">
+                                        <label class="inline-flex items-center">
                             <input type="radio" class="form-radio text-purple-500" name="availability" value="morning">
                             <span class="ml-2 text-gray-300">Mañana</span>
                         </label>
-                        <label class="inline-flex items-center">
+                                        <label class="inline-flex items-center">
                             <input type="radio" class="form-radio text-purple-500" name="availability" value="afternoon">
                             <span class="ml-2 text-gray-300">Tarde</span>
                         </label>
-                    </div>
-                </div>
-                
-                <div>
-                    <label class="block text-gray-300 mb-2">¿Cómo prefieres ser contactado? *</label>
-                    <div class="flex flex-wrap gap-4">
-                        <label class="inline-flex items-center">
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <label class="block text-gray-300 mb-2">¿Cómo prefieres ser contactado? *</label>
+                                    <div class="flex flex-wrap gap-4">
+                                        <label class="inline-flex items-center">
                             <input type="checkbox" class="form-checkbox text-purple-500">
                             <span class="ml-2 text-gray-300">Email</span>
                         </label>
-                        <label class="inline-flex items-center">
+                                        <label class="inline-flex items-center">
                             <input type="checkbox" class="form-checkbox text-purple-500">
                             <span class="ml-2 text-gray-300">Llamada</span>
                         </label>
-                        <label class="inline-flex items-center">
+                                        <label class="inline-flex items-center">
                             <input type="checkbox" class="form-checkbox text-purple-500">
                             <span class="ml-2 text-gray-300">Videollamada</span>
                         </label>
-                        <label class="inline-flex items-center">
+                                        <label class="inline-flex items-center">
                             <input type="checkbox" class="form-checkbox text-purple-500">
                             <span class="ml-2 text-gray-300">Chat</span>
                         </label>
-                    </div>
-                </div>
-                
-                <div>
-                    <label class="block text-gray-300 mb-2">Información Adicional</label>
-                    <textarea class="w-full bg-gray-900 border border-gray-700 rounded-md px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-purple-500 h-24" placeholder="Describe brevemente tus necesidades..."></textarea>
-                </div>
-                
-                <div class="pt-2">
-                    <button type="submit" class="w-full px-6 py-3 bg-purple-600 hover:bg-purple-700 rounded-md text-white font-medium transition glow-hover">
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <label class="block text-gray-300 mb-2">Información Adicional</label>
+                                    <textarea class="w-full bg-gray-900 border border-gray-700 rounded-md px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-purple-500 h-24" placeholder="Describe brevemente tus necesidades..."></textarea>
+                                </div>
+
+                                <div class="pt-2">
+                                    <button type="submit" class="w-full px-6 py-3 bg-purple-600 hover:bg-purple-700 rounded-md text-white font-medium transition glow-hover">
                         <i class="fas fa-calendar-check mr-2"></i> Solicitar Consulta Gratuita
                     </button>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
-</div>
-</section>
-
-<!-- Client Portal CTA -->
-<section class="py-16 px-4 bg-gradient-to-r from-purple-900/50 to-gray-900">
-    <div class="container mx-auto text-center">
-        <div class="max-w-3xl mx-auto">
-            <h2 class="text-3xl md:text-4xl font-bold mb-6">Accede a tu <span class="gradient-text">Portal de Cliente</span></h2>
-            <p class="text-gray-400 mb-8">
-                Gestiona tus casos, reportes y servicios desde nuestra plataforma segura con autenticación multifactor.
-            </p>
-            <a href="#" class="px-8 py-3 bg-white hover:bg-gray-100 text-gray-900 rounded-md font-medium transition inline-flex items-center glow-hover">
-                <i class="fas fa-user-lock mr-2"></i> Iniciar Sesión
-            </a>
-        </div>
-    </div>
-</section>
-
-<!-- Footer -->
-<footer class="bg-gray-900/80 border-t border-gray-800">
-    <div class="container mx-auto px-4 py-12">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
-            <div>
-                <div class="flex items-center space-x-2 mb-4">
-                    <div class="hexagon w-8 h-8 gradient-bg flex items-center justify-center">
-                        <span class="text-white font-bold text-sm">HF</span>
-                    </div>
-                    <div>
-                        <h3 class="font-bold">HELPXION <span class="gradient-text">FORTSENT</span></h3>
-                        <p class="text-xs text-gray-500">CYBERSECURITY</p>
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
-                <p class="text-gray-400 text-sm mb-4">
-                    Soluciones avanzadas de ciberseguridad ofensiva y defensiva con compromiso social.
+            </div>
+    </section>
+
+    <!-- Client Portal CTA -->
+    <section class="py-16 px-4 bg-gradient-to-r from-purple-900/50 to-gray-900">
+        <div class="container mx-auto text-center">
+            <div class="max-w-3xl mx-auto">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6">Accede a tu <span class="gradient-text">Portal de Cliente</span></h2>
+                <p class="text-gray-400 mb-8">
+                    Gestiona tus casos, reportes y servicios desde nuestra plataforma segura con autenticación multifactor.
                 </p>
-                <div class="flex space-x-4">
-                    <a href="#" class="text-gray-400 hover:text-purple-500 transition">
-                        <i class="fab fa-twitter"></i>
-                    </a>
-                    <a href="#" class="text-gray-400 hover:text-purple-500 transition">
-                        <i class="fab fa-linkedin"></i>
-                    </a>
-                    <a href="#" class="text-gray-400 hover:text-purple-500 transition">
-                        <i class="fab fa-github"></i>
-                    </a>
-                    <a href="#" class="text-gray-400 hover:text-purple-500 transition">
-                        <i class="fab fa-discord"></i>
-                    </a>
+                <a href="#" class="px-8 py-3 bg-white hover:bg-gray-100 text-gray-900 rounded-md font-medium transition inline-flex items-center glow-hover">
+                    <i class="fas fa-user-lock mr-2"></i> Iniciar Sesión
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900/80 border-t border-gray-800">
+        <div class="container mx-auto px-4 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+                <div>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <img src="assets/img/hfc-logo2.png" alt="Helpxion Fortsent Logo" class="w-12 h-12">
+                        <div>
+                            <h3 class="font-bold">HELPXION <span class="gradient-text">FORTSENT</span></h3>
+                            <p class="text-xs text-gray-500">CYBERSECURITY</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 text-sm mb-4">
+                        Soluciones avanzadas de ciberseguridad ofensiva y defensiva con compromiso social.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-purple-500 transition">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-purple-500 transition">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-purple-500 transition">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-purple-500 transition">
+                            <i class="fab fa-discord"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Servicios</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-purple-500 transition text-sm">Red Team</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-purple-500 transition text-sm">Blue Team</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-purple-500 transition text-sm">Forensia Digital</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-purple-500 transition text-sm">Capacitación</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-purple-500 transition text-sm">Cumplimiento</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-purple-500 transition text-sm">Apoyo Social</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Recursos</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-purple-500 transition text-sm">Blog</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-purple-500 transition text-sm">Guías</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-purple-500 transition text-sm">Herramientas</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-purple-500 transition text-sm">Cursos</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-purple-500 transition text-sm">Checklists</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-purple-500 transition text-sm">Programa HFC</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Legal</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-purple-500 transition text-sm">Términos de Servicio</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-purple-500 transition text-sm">Política de Privacidad</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-purple-500 transition text-sm">Reporte de Vulnerabilidades</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-purple-500 transition text-sm">Responsabilidad Social</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-purple-500 transition text-sm">Certificaciones</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-purple-500 transition text-sm">Transparencia</a></li>
+                    </ul>
                 </div>
             </div>
-            
-            <div>
-                <h4 class="text-lg font-bold mb-4">Servicios</h4>
-                <ul class="space-y-2">
-                    <li><a href="#" class="text-gray-400 hover:text-purple-500 transition text-sm">Red Team</a></li>
-                    <li><a href="#" class="text-gray-400 hover:text-purple-500 transition text-sm">Blue Team</a></li>
-                    <li><a href="#" class="text-gray-400 hover:text-purple-500 transition text-sm">Forensia Digital</a></li>
-                    <li><a href="#" class="text-gray-400 hover:text-purple-500 transition text-sm">Capacitación</a></li>
-                    <li><a href="#" class="text-gray-400 hover:text-purple-500 transition text-sm">Cumplimiento</a></li>
-                    <li><a href="#" class="text-gray-400 hover:text-purple-500 transition text-sm">Apoyo Social</a></li>
-                </ul>
-            </div>
-            
-            <div>
-                <h4 class="text-lg font-bold mb-4">Recursos</h4>
-                <ul class="space-y-2">
-                    <li><a href="#" class="text-gray-400 hover:text-purple-500 transition text-sm">Blog</a></li>
-                    <li><a href="#" class="text-gray-400 hover:text-purple-500 transition text-sm">Guías</a></li>
-                    <li><a href="#" class="text-gray-400 hover:text-purple-500 transition text-sm">Herramientas</a></li>
-                    <li><a href="#" class="text-gray-400 hover:text-purple-500 transition text-sm">Cursos</a></li>
-                    <li><a href="#" class="text-gray-400 hover:text-purple-500 transition text-sm">Checklists</a></li>
-                    <li><a href="#" class="text-gray-400 hover:text-purple-500 transition text-sm">Programa HFC</a></li>
-                </ul>
-            </div>
-            
-            <div>
-                <h4 class="text-lg font-bold mb-4">Legal</h4>
-                <ul class="space-y-2">
-                    <li><a href="#" class="text-gray-400 hover:text-purple-500 transition text-sm">Términos de Servicio</a></li>
-                    <li><a href="#" class="text-gray-400 hover:text-purple-500 transition text-sm">Política de Privacidad</a></li>
-                    <li><a href="#" class="text-gray-400 hover:text-purple-500 transition text-sm">Reporte de Vulnerabilidades</a></li>
-                    <li><a href="#" class="text-gray-400 hover:text-purple-500 transition text-sm">Responsabilidad Social</a></li>
-                    <li><a href="#" class="text-gray-400 hover:text-purple-500 transition text-sm">Certificaciones</a></li>
-                    <li><a href="#" class="text-gray-400 hover:text-purple-500 transition text-sm">Transparencia</a></li>
-                </ul>
-            </div>
-        </div>
-        
-        <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-            <p class="text-gray-500 text-sm mb-4 md:mb-0">
-                © 2023 Helpxion Fortsent Cybersecurity. Todos los derechos reservados.
-            </p>
-            <div class="flex space-x-6">
-                <a href="#" class="text-gray-500 hover:text-purple-500 transition text-sm">Mapa del Sitio</a>
-                <a href="#" class="text-gray-500 hover:text-purple-500 transition text-sm">FAQ</a>
-                <a href="#" class="text-gray-500 hover:text-purple-500 transition text-sm">Soporte</a>
-                <a href="#" class="text-gray-500 hover:text-purple-500 transition text-sm">Carreras</a>
-            </div>
-        </div>
-    </div>
-</footer>
 
-<!-- Chatbot -->
-<div class="fixed bottom-6 right
-<p style="border-radius: 8px; text-align: center; font-size: 12px; color: #fff; margin-top: 16px;position: fixed; left: 8px; bottom: 8px; z-index: 10; background: rgba(0, 0, 0, 0.8); padding: 4px 8px;">Made with <img src="https://enzostvs-deepsite.hf.space/logo.svg" alt="DeepSite Logo" style="width: 16px; height: 16px; vertical-align: middle;display:inline-block;margin-right:3px;filter:brightness(0) invert(1);"><a href="https://enzostvs-deepsite.hf.space" style="color: #fff;text-decoration: underline;" target="_blank" >DeepSite</a> - 🧬 <a href="https://enzostvs-deepsite.hf.space?remix=Andresvlz/helpxion-fortsent" style="color: #fff;text-decoration: underline;" target="_blank" >Remix</a></p></body>
+            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-500 text-sm mb-4 md:mb-0">
+                    © 2023 Helpxion Fortsent Cybersecurity. Todos los derechos reservados.
+                </p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-500 hover:text-purple-500 transition text-sm">Mapa del Sitio</a>
+                    <a href="#" class="text-gray-500 hover:text-purple-500 transition text-sm">FAQ</a>
+                    <a href="#" class="text-gray-500 hover:text-purple-500 transition text-sm">Soporte</a>
+                    <a href="#" class="text-gray-500 hover:text-purple-500 transition text-sm">Carreras</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="fixed bottom-2 right-2 text-xs text-gray-400">
+        © 2025 Helpxion Fortsent Cybersecurity
+    </div>
+
+    <script>
+        document.querySelectorAll('.space-y-4 > .border-b > button').forEach((btn) => {
+            btn.addEventListener('click', function() {
+                const answer = btn.nextElementSibling;
+                if (answer) {
+                    answer.classList.toggle('hidden');
+                }
+                // Opcional: cambiar el ícono de flecha
+                const icon = btn.querySelector('i');
+                if (icon) {
+                    icon.classList.toggle('fa-chevron-down');
+                    icon.classList.toggle('fa-chevron-up');
+                }
+            });
+        });
+    </script>
+</body>
+
 </html>

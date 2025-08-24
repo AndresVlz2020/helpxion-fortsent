@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Qué es Red Team?</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'purple-primary': '#6D28D9',
+                        'purple-secondary': '#8B5CF6',
+                        'purple-light': '#C4B5FD',
+                        'purple-dark': '#4C1D95',
+                        'purple-bg': '#F5F3FF'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        body {
+            background-image: url('../../assets/img/blue-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        
+        .tab-container {
+            background-color: white;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            max-width: 800px;
+            width: 100%;
+            margin: 40px auto;
+            /* Centra el cuadro y da espacio arriba/abajo */
+            animation: fadeIn 0.5s ease-out;
+        }
+        
+        .tab-header {
+            background: linear-gradient(135deg, #6D28D9 0%, #4C1D95 100%);
+            color: white;
+            padding: 20px 30px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .tab-header h1 {
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+        
+        .tab-content {
+            padding: 30px;
+            line-height: 1.6;
+        }
+        
+        .definition-section {
+            margin-bottom: 30px;
+        }
+        
+        .definition-section h2 {
+            color: #4C1D95;
+            font-size: 22px;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .definition-section p {
+            color: #374151;
+            margin-bottom: 15px;
+        }
+        
+        .key-points {
+            background-color: #F5F3FF;
+            border-left: 4px solid #8B5CF6;
+            padding: 20px;
+            border-radius: 0 8px 8px 0;
+            margin: 25px 0;
+        }
+        
+        .key-points h3 {
+            color: #4C1D95;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .key-points ul {
+            list-style-type: none;
+        }
+        
+        .key-points li {
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .key-points li:before {
+            content: "•";
+            color: #6D28D9;
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+            font-size: 18px;
+        }
+        
+        .example-section {
+            background-color: #8B5CF6;
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 25px;
+        }
+        
+        .example-section h3 {
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .footer-note {
+            text-align: center;
+            margin-top: 30px;
+            color: #6B7280;
+            font-size: 14px;
+        }
+        
+        @media (max-width: 640px) {
+            .tab-header h1 {
+                font-size: 24px;
+            }
+            .tab-content {
+                padding: 20px;
+            }
+            .definition-section h2 {
+                font-size: 20px;
+            }
+        }
+        /* Animación de entrada */
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .tab-container {
+            animation: fadeIn 0.5s ease-out;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="tab-container">
+        <div class="tab-header">
+            <h1>¿Qué es Red Team?</h1>
+        </div>
+
+        <div class="tab-content">
+            <div class="definition-section">
+                <h2>Definición</h2>
+                <p>Un <strong>Red Team</strong> es un grupo de expertos en ciberseguridad que simulan ataques realistas contra los sistemas, redes, aplicaciones y personal de una organización. Su objetivo principal es identificar vulnerabilidades y evaluar
+                    la efectividad de las medidas de seguridad implementadas.</p>
+
+                <p>A diferencia de los equipos de seguridad tradicionales que se enfocan en la defensa, el Red Team adopta la mentalidad de un atacante real para descubrir puntos débiles antes de que los actores maliciosos puedan explotarlos.</p>
+            </div>
+
+            <div class="key-points">
+                <h3>Características principales</h3>
+                <ul>
+                    <li>Simulan técnicas, tácticas y procedimientos (TTPs) de adversarios reales</li>
+                    <li>Realizan pruebas de penetración avanzadas y ataques multi-vector</li>
+                    <li>Evalúan la capacidad de detección y respuesta de los equipos de seguridad (Blue Team)</li>
+                    <li>Proveen recomendaciones prácticas para mejorar la postura de seguridad</li>
+                    <li>Trabajan de manera sigilosa para imitar ataques reales</li>
+                </ul>
+            </div>
+
+            <div class="definition-section">
+                <h2>Objetivos del Red Team</h2>
+                <p>El propósito fundamental de un Red Team es fortalecer la seguridad de una organización mediante:</p>
+
+                <ul class="key-points">
+                    <li>Identificar vulnerabilidades no detectadas por evaluaciones automatizadas</li>
+                    <li>Probar la efectividad de los controles de seguridad existentes</li>
+                    <li>Evaluar la capacidad de respuesta ante incidentes</li>
+                    <li>Concientizar a la organización sobre amenazas reales</li>
+                    <li>Validar la eficacia de las inversiones en seguridad</li>
+                </ul>
+            </div>
+
+            <div class="example-section">
+                <h3>Ejemplo de enfoque</h3>
+                <p>Un Red Team podría intentar infiltrarse en una organización mediante ingeniería social (phishing), explotar vulnerabilidades en aplicaciones web, moverse lateralmente por la red, y finalmente acceder a información confidencial, todo mientras
+                    documenta cada paso y evita ser detectado por los sistemas de seguridad.</p>
+            </div>
+
+            <div class="footer-note">
+                <p>El trabajo del Red Team es fundamental para adoptar un enfoque proactivo en ciberseguridad.</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

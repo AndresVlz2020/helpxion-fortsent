@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pago de Servicios</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'purple-primary': '#6D28D9',
+                        'purple-secondary': '#8B5CF6',
+                        'purple-light': '#C4B5FD',
+                        'purple-dark': '#4C1D95',
+                        'purple-bg': '#F5F3FF'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .card-flip {
+            transform-style: preserve-3d;
+            transition: transform 0.6s;
+        }
+        
+        .card-front,
+        .card-back {
+            backface-visibility: hidden;
+        }
+        
+        .card-back {
+            transform: rotateY(180deg);
+        }
+        
+        .flipped {
+            transform: rotateY(180deg);
+        }
+        
+        .input-field:focus {
+            box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.3);
+        }
+        /* Animación para el proceso de pago */
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+    </style>
+</head>
+
+<body class="bg-purple-bg min-h-screen flex items-center justify-center p-4">
+    <div class="w-full max-w-4xl mx-auto">
+        <!-- Header -->
+        <header class="text-center mb-8">
+            <h1 class="text-3xl md:text-4xl font-bold text-purple-primary">Helpxion Fortsent</h1>
+            <p class="text-gray-600 mt-2">Complete los detalles de su pago de forma segura</p>
+        </header>
+
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col md:flex-row">
+            <!-- Sección de información del servicio -->
+            <div class="w-full md:w-2/5 bg-gradient-to-br from-purple-primary to-purple-secondary text-white p-6">
+                <div class="mb-6">
+                    <h2 class="text-xl font-semibold mb-2">Detalles del Servicio</h2>
+                    <div class="bg-white bg-opacity-20 p-4 rounded-lg">
+                        <div class="flex justify-between items-center mb-3">
+                            <span>Protección Personal</span>
+                            <span class="font-bold">$49.99</span>
+                        </div>
+                        <div class="border-t border-white border-opacity-30 pt-3 mt-3 flex justify-between items-center font-bold text-lg">
+
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h2 class="text-xl font-semibold mb-2">Beneficios</h2>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle mr-2 text-purple-light"></i>
+                            <span>Monitoreo de identidad</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle mr-2 text-purple-light"></i>
+                            <span>CyberShield personal</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle mr-2 text-purple-light"></i>
+                            <span>VPN Premium</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle mr-2 text-purple-light"></i>
+                            <span>Asesoría básica 24/7</span>
+
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle mr-2 text-purple-light"></i>
+                                <span>1 Evaluación anual</span>
+                            </li>
+                    </ul>
+                </div>
+
+                <div class="mt-8 text-center">
+                    <div class="pulse inline-flex items-center justify-center w-12 h-12 rounded-full bg-white bg-opacity-20">
+                        <i class="fas fa-lock text-xl"></i>
+                    </div>
+                    <p class="mt-2 text-sm text-purple-light">Pago seguro y encriptado</p>
+                </div>
+            </div>
+
+            <!-- Sección de formulario de pago -->
+            <div class="w-full md:w-3/5 p-6">
+                <h2 class="text-2xl font-semibold text-gray-800 mb-6">Información de Pago</h2>
+
+                <form id="payment-form">
+                    <!-- Información personal -->
+                    <div class="mb-6">
+                        <h3 class="text-lg font-medium text-purple-primary mb-3">Datos Personales</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-gray-700 mb-2" for="name">Nombre</label>
+                                <input type="text" id="name" class="input-field w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-purple-primary" placeholder="Juan Pérez">
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 mb-2" for="email">Correo Electrónico</label>
+                                <input type="email" id="email" class="input-field w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-purple-primary" placeholder="ejemplo@correo.com">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Información de tarjeta -->
+                    <div class="mb-6">
+                        <h3 class="text-lg font-medium text-purple-primary mb-3">Información de Tarjeta</h3>
+
+                        <!-- Tarjeta interactiva -->
+                        <div class="mb-4 relative h-56 perspective-1000">
+                            <div class="card-flip absolute w-full h-full">
+                                <!-- Parte frontal de la tarjeta -->
+                                <div class="card-front absolute w-full h-full bg-gradient-to-r from-purple-secondary to-purple-primary rounded-xl p-5 text-white shadow-lg">
+                                    <div class="flex justify-between items-start mb-6">
+                                        <div>
+                                            <div class="text-xs mb-1">Nombre en la tarjeta</div>
+                                            <div id="card-name-display" class="text-sm">JUAN PÉREZ</div>
+                                        </div>
+                                        <i class="fab fa-cc-visa text-3xl"></i>
+                                    </div>
+                                    <div class="mb-4">
+                                        <div class="text-xs mb-1">Número de tarjeta</div>
+                                        <div id="card-number-display" class="text-xl tracking-wider">•••• •••• •••• 1234</div>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <div>
+                                            <div class="text-xs mb-1">Válida hasta</div>
+                                            <div id="card-expiry-display">12/25</div>
+                                        </div>
+                                        <div class="flex items-end">
+                                            <button type="button" onclick="flipCard()" class="text-xs text-white text-opacity-70 hover:text-opacity-100">
+                                                Ver código <i class="fas fa-chevron-right ml-1"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Parte trasera de la tarjeta -->
+                                <div class="card-back absolute w-full h-full bg-gradient-to-r from-purple-primary to-purple-secondary rounded-xl p-5 text-white shadow-lg">
+                                    <div class="w-full h-8 bg-black mt-4 mb-6"></div>
+                                    <div class="flex items-center justify-end">
+                                        <div class="bg-white h-10 rounded flex items-center justify-center px-3">
+                                            <span id="card-cvc-display" class="text-gray-800">123</span>
+                                        </div>
+                                    </div>
+                                    <div class="absolute bottom-5 left-5">
+                                        <button type="button" onclick="flipCard()" class="text-xs text-white text-opacity-70 hover:text-opacity-100">
+                                            <i class="fas fa-chevron-left mr-1"></i> Volver
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Formulario de tarjeta -->
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-gray-700 mb-2" for="card-number">Número de Tarjeta</label>
+                                <input type="text" id="card-number" class="input-field w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-purple-primary" placeholder="1234 5678 9012 3456" maxlength="19" oninput="formatCardNumber(this)">
+                            </div>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-gray-700 mb-2" for="card-expiry">Fecha de Expiración</label>
+                                    <input type="text" id="card-expiry" class="input-field w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-purple-primary" placeholder="MM/AA" maxlength="5" oninput="formatExpiry(this)">
+                                </div>
+                                <div>
+                                    <label class="block text-gray-700 mb-2" for="card-cvc">Código CVC</label>
+                                    <input type="text" id="card-cvc" class="input-field w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-purple-primary" placeholder="123" maxlength="3" oninput="updateCVC(this)">
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 mb-2" for="cardholder-name">Nombre del Titular</label>
+                                <input type="text" id="cardholder-name" class="input-field w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-purple-primary" placeholder="Como aparece en la tarjeta" oninput="updateCardName(this)">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Botón de pago -->
+                    <div class="mt-8">
+                        <button type="button" onclick="processPayment(this)" class="w-full bg-purple-primary hover:bg-purple-dark text-white py-3 px-4 rounded-lg font-medium transition duration-300 flex items-center justify-center">
+                            <i class="fas fa-lock mr-2"></i>
+                            Pagar $49.99 x 1 mes
+                        </button>
+                    </div>
+
+                    <!-- Botón de pago -->
+                    <div class="mt-8">
+                        <button type="button" onclick="processPayment(this)" class="w-full bg-purple-primary hover:bg-purple-dark text-white py-3 px-4 rounded-lg font-medium transition duration-300 flex items-center justify-center">
+                            <i class="fas fa-lock mr-2"></i>
+                            Pagar $245.99 x 6 meses
+                        </button>
+                    </div>
+
+                    <!-- Botón de pago -->
+                    <div class="mt-8">
+                        <button type="button" onclick="processPayment(this)" class="w-full bg-purple-primary hover:bg-purple-dark text-white py-3 px-4 rounded-lg font-medium transition duration-300 flex items-center justify-center">
+                            <i class="fas fa-lock mr-2"></i>
+                            Pagar $552.99 x 12 meses
+                        </button>
+                    </div>
+
+                    <div class="mt-4 text-center text-sm text-gray-600">
+                        <p>Al hacer clic en el botón, aceptas nuestros <a href="#" class="text-purple-primary hover:underline">Términos y Condiciones</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Métodos de pago alternativos -->
+        <div class="mt-6 bg-white rounded-xl shadow-lg p-6">
+            <h3 class="text-lg font-medium text-gray-800 mb-4">Métodos de pago alternativos</h3>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="border border-gray-200 rounded-lg p-3 text-center cursor-pointer hover:border-purple-primary transition duration-300">
+                    <i class="fab fa-paypal text-3xl text-blue-500"></i>
+                    <p class="mt-2 text-sm">PayPal</p>
+                </div>
+                <div class="border border-gray-200 rounded-lg p-3 text-center cursor-pointer hover:border-purple-primary transition duration-300">
+                    <i class="fab fa-google-pay text-3xl text-gray-800"></i>
+                    <p class="mt-2 text-sm">Google Pay</p>
+                </div>
+                <div class="border border-gray-200 rounded-lg p-3 text-center cursor-pointer hover:border-purple-primary transition duration-300">
+                    <i class="fab fa-apple-pay text-3xl text-gray-800"></i>
+                    <p class="mt-2 text-sm">Apple Pay</p>
+                </div>
+                <div class="border border-gray-200 rounded-lg p-3 text-center cursor-pointer hover:border-purple-primary transition duration-300">
+                    <i class="fas fa-university text-3xl text-purple-primary"></i>
+                    <p class="mt-2 text-sm">Transferencia</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Función para voltear la tarjeta
+        function flipCard() {
+            const card = document.querySelector('.card-flip');
+            card.classList.toggle('flipped');
+        }
+
+        // Formatear número de tarjeta con espacios
+        function formatCardNumber(input) {
+            let value = input.value.replace(/\s+/g, '').replace(/[^0-9]/gi, '');
+            let formattedValue = '';
+
+            for (let i = 0; i < value.length; i++) {
+                if (i > 0 && i % 4 === 0) {
+                    formattedValue += ' ';
+                }
+                formattedValue += value[i];
+            }
+
+            input.value = formattedValue;
+            document.getElementById('card-number-display').textContent = formattedValue || '•••• •••• •••• ••••';
+
+            // Detectar tipo de tarjeta por el primer dígito
+            const firstDigit = value[0];
+            let cardType = 'credit-card';
+
+            if (firstDigit === '4') cardType = 'cc-visa';
+            else if (firstDigit === '5') cardType = 'cc-mastercard';
+            else if (firstDigit === '3') cardType = 'cc-amex';
+            else if (firstDigit === '6') cardType = 'cc-discover';
+
+            document.querySelector('.card-front .fab').className = `fab fa-${cardType} text-3xl`;
+        }
+
+        // Formatear fecha de expiración
+        function formatExpiry(input) {
+            let value = input.value.replace(/\D/g, '');
+
+            if (value.length > 2) {
+                value = value.substring(0, 2) + '/' + value.substring(2, 4);
+            }
+
+            input.value = value;
+            document.getElementById('card-expiry-display').textContent = value || 'MM/AA';
+        }
+
+        // Actualizar CVC
+        function updateCVC(input) {
+            document.getElementById('card-cvc-display').textContent = input.value || '***';
+        }
+
+        // Actualizar nombre en la tarjeta
+        function updateCardName(input) {
+            document.getElementById('card-name-display').textContent = input.value.toUpperCase() || 'NOMBRE EN LA TARJETA';
+        }
+
+        // Simular proceso de pago
+        function processPayment() {
+            const button = document.querySelector('button[onclick="processPayment()"]');
+            const originalText = button.innerHTML;
+
+            // Mostrar loading
+            button.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Procesando pago...';
+            button.disabled = true;
+
+            // Simular proceso de pago
+            setTimeout(() => {
+                // Éxito en el pago (simulado)
+                button.innerHTML = '<i class="fas fa-check-circle mr-2"></i> Pago realizado con éxito!';
+                button.classList.remove('bg-purple-primary', 'hover:bg-purple-dark');
+                button.classList.add('bg-green-500');
+
+                // Mensaje de agradecimiento
+                alert('¡Gracias por su compra! Su pago ha sido procesado con éxito.');
+            }, 2000);
+        }
+    </script>
+
+</body>
+
+</html>
