@@ -1,0 +1,202 @@
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Qué es la Forense Digital? - Helpxion Fortsent</title>
+    <!-- Tailwind CSS para un diseño rápido y responsivo -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts para una tipografía moderna -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Usamos la fuente Inter como predeterminada */
+        
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Definimos el color principal para usarlo con Tailwind */
+        
+        .text-principal {
+            color: #9333ea;
+        }
+        
+        .bg-principal {
+            background-color: #9333ea;
+        }
+        
+        .border-principal {
+            border-color: #9333ea;
+        }
+        /* Estilos para el cuerpo del artículo en tema oscuro */
+        
+        .article-body h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #f9fafb;
+            /* gray-50 */
+        }
+        
+        .article-body p {
+            font-size: 1.1rem;
+            line-height: 1.75;
+            color: #9ca3af;
+            /* gray-400 */
+        }
+        
+        .article-body strong {
+            color: #d1d5db;
+            /* gray-300 */
+        }
+        /* Estilos para la animación de entrada */
+        
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body class="bg-gray-900 text-gray-300">
+
+    <!-- Sección Principal -->
+    <main class="container mx-auto px-6 py-12">
+
+        <!-- Encabezado del Artículo -->
+        <header class="text-center mb-16 pt-8 fade-in-section">
+            <h1 class="text-4xl md:text-5xl font-extrabold text-white"><span class="text-principal">Análisis Forense Digital</span></h1>
+            <p class="mt-4 text-lg text-gray-400 max-w-3xl mx-auto"></p>
+        </header>
+
+        <!-- Contenedor del Artículo -->
+        <div class="max-w-5xl mx-auto bg-gray-800 p-8 md:p-12 rounded-2xl shadow-2xl shadow-purple-500/10">
+            <article class="space-y-16 article-body">
+
+                <!-- Sección 1: ¿Qué es el Análisis Forense Digital? -->
+                <section class="flex flex-col md:flex-row items-center md:space-x-12 fade-in-section">
+                    <div class="w-full md:w-1/2 mb-6 md:mb-0">
+                        <img src="https://images.pexels.com/photos/3861964/pexels-photo-3861964.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Analista de seguridad examinando líneas de código en múltiples monitores en un entorno oscuro, simbolizando una investigación digital."
+                            class="rounded-lg shadow-lg w-full object-cover h-64">
+                    </div>
+                    <div class="w-full md:w-1/2">
+                        <h3>¿Qué es el Análisis Forense Digital?</h3>
+                        <p>El <strong>Análisis Forense Digital</strong> (o informática forense) es la disciplina que se encarga de la identificación, preservación, adquisición, análisis y presentación de evidencia encontrada en dispositivos digitales. Su
+                            propósito es reconstruir eventos para entender qué ocurrió, cómo ocurrió, quién fue el responsable y cuál fue el impacto. Actúa como la "investigación de la escena del crimen" del mundo digital.</p>
+                    </div>
+                </section>
+
+                <!-- Sección 2: Objetivo Principal -->
+                <section class="flex flex-col md:flex-row-reverse items-center md:space-x-reverse md:space-x-12 fade-in-section">
+                    <div class="w-full md:w-1/2 mb-6 md:mb-0">
+                        <img src="https://images.pexels.com/photos/6801642/pexels-photo-6801642.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Un documento digital con un sello de 'evidencia' y un gráfico de datos, representando la admisibilidad legal de la información."
+                            class="rounded-lg shadow-lg w-full object-cover h-64">
+                    </div>
+                    <div class="w-full md:w-1/2">
+                        <h3>Objetivo Principal</h3>
+                        <p>El objetivo fundamental es recuperar datos de manera que sean <strong>admisibles en un proceso legal o en una investigación interna</strong>. Esto requiere un manejo meticuloso de la evidencia para asegurar su integridad y autenticidad.
+                            El fin último es proporcionar una explicación objetiva y basada en hechos de un incidente, ya sea un ciberataque, un fraude o un robo de propiedad intelectual.</p>
+                    </div>
+                </section>
+
+                <!-- Sección 3: El Proceso Forense -->
+                <section class="flex flex-col md:flex-row items-center md:space-x-12 fade-in-section">
+                    <div class="w-full md:w-1/2 mb-6 md:mb-0">
+                        <img src="https://images.pexels.com/photos/3184328/pexels-photo-3184328.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Un equipo documentando un proceso en una pizarra, simbolizando las fases metódicas de la investigación forense." class="rounded-lg shadow-lg w-full object-cover h-64">
+                    </div>
+                    <div class="w-full md:w-1/2">
+                        <h3>El Proceso Forense</h3>
+                        <p>La investigación sigue un proceso estricto: <strong>Preservación</strong> (aislar el dispositivo para evitar alteraciones), <strong>Adquisición</strong> (crear una copia bit a bit del medio original), <strong>Análisis</strong>                            (examinar la copia en busca de artefactos y evidencia relevante) y <strong>Reporte</strong> (documentar los hallazgos de manera clara y concisa, junto con la metodología utilizada).</p>
+                    </div>
+                </section>
+
+                <!-- Sección 4: Tipos de Análisis Forense -->
+                <section class="flex flex-col md:flex-row-reverse items-center md:space-x-reverse md:space-x-12 fade-in-section">
+                    <div class="w-full md:w-1/2 mb-6 md:mb-0">
+                        <img src="https://images.pexels.com/photos/1779487/pexels-photo-1779487.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Una variedad de dispositivos digitales (laptop, smartphone, tablet) sobre una mesa, representando los diferentes campos de la forensia."
+                            class="rounded-lg shadow-lg w-full object-cover h-64">
+                    </div>
+                    <div class="w-full md:w-1/2">
+                        <h3>Tipos de Análisis Forense</h3>
+                        <p>La disciplina se especializa en varias áreas: <strong>Forense de Computadoras</strong> (análisis de discos duros y sistemas), <strong>Forense de Redes</strong> (monitoreo y análisis del tráfico de red), <strong>Forense Móvil</strong>                            (extracción de datos de smartphones y tablets) y <strong>Forense en la Nube</strong> (investigación de datos almacenados en servicios cloud), cada una con sus propias herramientas y técnicas.</p>
+                    </div>
+                </section>
+
+                <!-- Sección 5: Principios Clave -->
+                <section class="flex flex-col md:flex-row items-center md:space-x-12 fade-in-section">
+                    <div class="w-full md:w-1/2 mb-6 md:mb-0">
+                        <img src="https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Una cadena metálica, simbolizando la inquebrantable Cadena de Custodia de la evidencia." class="rounded-lg shadow-lg w-full object-cover h-64">
+                    </div>
+                    <div class="w-full md:w-1/2">
+                        <h3>Principios Clave</h3>
+                        <p>Dos principios son sagrados en el análisis forense. Primero, la <strong>Integridad de la Evidencia</strong>: se debe probar que la evidencia no ha sido alterada desde su recolección. Esto se logra mediante funciones hash. Segundo,
+                            la <strong>Cadena de Custodia</strong>: un registro detallado de quién ha manejado la evidencia, cuándo y con qué propósito, desde el momento de su recolección hasta su presentación en un tribunal.</p>
+                    </div>
+                </section>
+
+                <!-- Sección 6: Herramientas Comunes -->
+                <section class="flex flex-col md:flex-row-reverse items-center md:space-x-reverse md:space-x-12 fade-in-section">
+                    <div class="w-full md:w-1/2 mb-6 md:mb-0">
+                        <img src="https://images.pexels.com/photos/4144144/pexels-photo-4144144.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Un técnico trabajando con hardware y cables, representando el uso de herramientas especializadas para el análisis forense."
+                            class="rounded-lg shadow-lg w-full object-cover h-64">
+                    </div>
+                    <div class="w-full md:w-1/2">
+                        <h3>Herramientas Comunes</h3>
+                        <p>Los analistas forenses utilizan software y hardware especializado para adquirir y analizar datos sin alterar el original. Herramientas comerciales como <strong>EnCase</strong> y <strong>FTK (Forensic Toolkit)</strong> son estándares
+                            de la industria, mientras que soluciones de código abierto como <strong>Autopsy</strong> y <strong>Wireshark</strong> (para redes) son también ampliamente utilizadas. Los bloqueadores de escritura son cruciales para prevenir
+                            modificaciones accidentales durante la adquisición.</p>
+                    </div>
+                </section>
+
+                <!-- Sección 7: Importancia y Aplicaciones -->
+                <section class="flex flex-col md:flex-row items-center md:space-x-12 fade-in-section">
+                    <div class="w-full md:w-1/2 mb-6 md:mb-0">
+                        <img src="https://images.pexels.com/photos/5668858/pexels-photo-5668858.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Una sala de juntas corporativa donde se presenta un informe, mostrando la aplicación de la forensia en el mundo empresarial."
+                            class="rounded-lg shadow-lg w-full object-cover h-64">
+                    </div>
+                    <div class="w-full md:w-1/2">
+                        <h3>Importancia y Aplicaciones</h3>
+                        <p>El análisis forense digital es vital en múltiples escenarios: <strong>investigaciones criminales</strong>, <strong>respuesta a incidentes corporativos</strong> (para entender el alcance de una brecha de datos), <strong>litigios civiles</strong>                            (en disputas de propiedad intelectual) y <strong>seguridad nacional</strong>. Proporciona las respuestas definitivas que permiten a las organizaciones y a la justicia tomar decisiones informadas.</p>
+                    </div>
+                </section>
+
+            </article>
+        </div>
+    </main>
+
+    <!-- Pie de Página -->
+    <footer class="bg-purple text-white mt-12">
+        <div class="container mx-auto px-6 py-8 text-center">
+            <p>&copy; 2025 Helpxion Fortsent. Todos los derechos reservados.</p>
+            <p class="text-gray-500 mt-2">Protegiendo tu mundo digital con inteligencia y estrategia.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Script para activar la animación al hacer scroll
+        const sections = document.querySelectorAll('.fade-in-section');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                }
+            });
+        }, {
+            threshold: 0.1 // La animación se activa cuando el 10% del elemento es visible
+        });
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+
+</body>
+
+</html>

@@ -1,250 +1,208 @@
-<!DOCTYPE html>
-<html lang="es">
+<!DOCTYPE html> html
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>¿Qué es Blue Team? - Ciberseguridad</title>
+    <title>¿Qué es el Blue Team? - Helpxion Fortsent</title>
+    <!-- Tailwind CSS para un diseño rápido y responsivo -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts para una tipografía moderna -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        /* Usamos la fuente Inter como predeterminada */
+        
         body {
-            background-image: url('../../assets/img/blue-bg.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
+            font-family: 'Inter', sans-serif;
+        }
+        /* Definimos el color principal para usarlo con Tailwind */
+        
+        .text-principal {
+            color: #9333ea;
         }
         
-        .tab-container {
+        .bg-principal {
+            background-color: #9333ea;
+        }
+        
+        .border-principal {
+            border-color: #9333ea;
+        }
+        /* Estilos para el cuerpo del artículo en tema oscuro */
+        
+        .article-body h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #f9fafb;
+            /* gray-50 */
+        }
+        
+        .article-body p {
+            font-size: 1.1rem;
+            line-height: 1.75;
+            color: #9ca3af;
+            /* gray-400 */
+        }
+        
+        .article-body strong {
+            color: #d1d5db;
+            /* gray-300 */
+        }
+        /* Estilos para la animación de entrada */
+        
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        
+        .fade-in-section.is-visible {
+            opacity: 1;
             transform: translateY(0);
-            transition: transform 0.3s ease;
-        }
-        
-        .tab-container:hover {
-            transform: translateY(-5px);
-        }
-        
-        .info-card {
-            box-shadow: 0 10px 30px rgba(109, 40, 217, 0.15);
-            transition: all 0.3s ease;
-        }
-        
-        .info-card:hover {
-            box-shadow: 0 15px 40px rgba(109, 40, 217, 0.25);
-        }
-        
-        .gradient-text {
-            background: linear-gradient(135deg, #6D28D9, #8B5CF6);
-            background-clip: text;
-            -webkit-background-clip: text;
-            color: transparent;
-            -webkit-text-fill-color: transparent;
-        }
-        
-        .role-icon {
-            transition: all 0.3s ease;
-        }
-        
-        .role-card:hover .role-icon {
-            transform: scale(1.1);
-            color: #8B5CF6;
-        }
-        /* Animación de aparición */
-        
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        .animate-fade-in {
-            animation: fadeIn 0.8s ease forwards;
-        }
-        /* Animación para el borde brillante */
-        
-        @keyframes glow {
-            0% {
-                box-shadow: 0 0 5px rgba(139, 92, 246, 0.5);
-            }
-            50% {
-                box-shadow: 0 0 20px rgba(139, 92, 246, 0.8);
-            }
-            100% {
-                box-shadow: 0 0 5px rgba(139, 92, 246, 0.5);
-            }
-        }
-        
-        .glow-border {
-            animation: glow 3s infinite;
         }
     </style>
 </head>
 
-<body class="text-gray-800">
-    <div class="container mx-auto px-4 py-12 max-w-4xl">
-        <!-- Pestaña principal -->
-        <div class="tab-container bg-white rounded-xl overflow-hidden mb-8 glow-border">
-            <div class="bg-[#6D28D9] py-4 px-6 flex items-center">
-                <div class="w-3 h-3 bg-[#C4B5FD] rounded-full mr-2"></div>
-                <div class="w-3 h-3 bg-[#C4B5FD] rounded-full mr-2"></div>
-                <div class="w-3 h-3 bg-[#C4B5FD] rounded-full"></div>
-                <h1 class="text-white text-xl font-bold ml-4">¿Qué es Blue Team?</h1>
-            </div>
+<body class="bg-gray-900 text-gray-300">
 
-            <div class="p-6 bg-[#F5F3FF]">
-                <div class="flex flex-col md:flex-row items-center mb-8 animate-fade-in">
-                    <div class="md:w-2/3 md:pr-8">
+    <!-- Sección Principal -->
+    <main class="container mx-auto px-6 py-12">
 
-                        <p class="text-lg mb-4">
-                            El <span class="font-semibold text-[#6D28D9]">Blue Team</span> es el grupo de profesionales de ciberseguridad encargado de <span class="font-semibold">defender</span> los sistemas, redes y datos de una organización contra ciberamenazas
-                            y ataques.
-                        </p>
-                        <p class="text-lg">
-                            Mientras el Red Team simula ataques para encontrar vulnerabilidades, el Blue Team se enfoca en
-                            <span class="font-semibold text-[#4C1D95]">fortalecer las defensas</span>, monitorear actividades sospechosas y responder a incidentes de seguridad.
-                        </p>
-                    </div>
-                    <div class="md:w-1/3 mt-6 md:mt-0 flex justify-center">
-                        <div class="bg-[#8B5CF6] p-4 rounded-full w-40 h-40 flex items-center justify-center">
-                            <i class="fas fa-shield-alt text-white text-6xl"></i>
-                        </div>
-                    </div>
+        <!-- Encabezado del Artículo -->
+        <header class="text-center mb-16 pt-8 fade-in-section">
+            <h1 class="text-4xl md:text-5xl font-extrabold text-white"><span class="text-principal">Blue Team</span></h1>
+            <p class="mt-4 text-lg text-gray-400 max-w-3xl mx-auto">
+
+                <!-- Contenedor del Artículo -->
+                <div class="max-w-5xl mx-auto bg-gray-800 p-8 md:p-12 rounded-2xl shadow-2xl shadow-purple-500/10">
+                    <article class="space-y-16 article-body">
+
+                        <!-- Sección 1: ¿Qué es un Blue Team? -->
+                        <section class="flex flex-col md:flex-row items-center md:space-x-12 fade-in-section">
+                            <div class="w-full md:w-1/2 mb-6 md:mb-0">
+                                <img src="https://images.pexels.com/photos/3861964/pexels-photo-3861964.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Analista de seguridad trabajando en un entorno oscuro iluminado por código en la pantalla, simbolizando la defensa cibernética."
+                                    class="rounded-lg shadow-lg w-full object-cover h-64">
+                            </div>
+                            <div class="w-full md:w-1/2">
+                                <h3>¿Qué es un Blue Team?</h3>
+                                <p>Un <strong>Blue Team</strong> es el equipo interno de seguridad responsable de defender a una organización contra todo tipo de ciberamenazas. Son la primera y última línea de defensa, encargados de mantener y mejorar la
+                                    postura de seguridad de la empresa de manera continua. Su trabajo es proactivo y reactivo: por un lado, fortalecen la infraestructura para prevenir ataques (hardening); por otro, monitorean constantemente los sistemas
+                                    en busca de actividad maliciosa y responden de inmediato cuando se detecta un incidente.</p>
+                            </div>
+                        </section>
+
+                        <!-- Sección 2: Objetivo Principal -->
+                        <section class="flex flex-col md:flex-row-reverse items-center md:space-x-reverse md:space-x-12 fade-in-section">
+                            <div class="w-full md:w-1/2 mb-6 md:mb-0">
+                                <img src="https://images.pexels.com/photos/5935791/pexels-photo-5935791.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Un candado digital sobre un fondo de código binario, representando la protección de la confidencialidad e integridad de los datos."
+                                    class="rounded-lg shadow-lg w-full object-cover h-64">
+                            </div>
+                            <div class="w-full md:w-1/2">
+                                <h3>Objetivo Principal</h3>
+                                <p>El objetivo primordial del Blue Team es garantizar la <strong>Confidencialidad, Integridad y Disponibilidad (la triada CIA)</strong> de los activos de información de la empresa. Esto implica minimizar la superficie de ataque,
+                                    reducir el tiempo de detección de amenazas (MTTD) y acelerar el tiempo de respuesta y recuperación ante un incidente (MTTR). En resumen, su misión es hacer que sea lo más difícil y costoso posible para un atacante tener
+                                    éxito.
+                                </p>
+                            </div>
+                        </section>
+
+                        <!-- Sección 3: Fases de la Defensa -->
+                        <section class="flex flex-col md:flex-row items-center md:space-x-12 fade-in-section">
+                            <div class="w-full md:w-1/2 mb-6 md:mb-0">
+                                <img src="https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Un equipo diverso planificando una estrategia sobre una mesa con diagramas, simbolizando las fases estructuradas de la defensa."
+                                    class="rounded-lg shadow-lg w-full object-cover h-64">
+                            </div>
+                            <div class="w-full md:w-1/2">
+                                <h3>Fases de la Defensa</h3>
+                                <p>El trabajo del Blue Team sigue un ciclo continuo basado en marcos como el NIST Cybersecurity Framework: <strong>Identificar</strong>, <strong>Proteger</strong>, <strong>Detectar</strong>, <strong>Responder</strong> y <strong>Recuperar</strong>.
+                                    Este ciclo asegura un enfoque estructurado desde la evaluación de riesgos hasta la restauración de operaciones y el aprendizaje post-incidente para fortalecer las defensas futuras.</p>
+                            </div>
+                        </section>
+
+                        <!-- Sección 4: El Rol del SOC -->
+                        <section class="flex flex-col md:flex-row-reverse items-center md:space-x-reverse md:space-x-12 fade-in-section">
+                            <div class="w-full md:w-1/2 mb-6 md:mb-0">
+                                <img src="https://images.pexels.com/photos/7988086/pexels-photo-7988086.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Una sala de control con múltiples pantallas mostrando datos y gráficos en tiempo real, representando un Centro de Operaciones de Seguridad."
+                                    class="rounded-lg shadow-lg w-full object-cover h-64">
+                            </div>
+                            <div class="w-full md:w-1/2">
+                                <h3>El Rol del SOC (Security Operations Center)</h3>
+                                <p>El Blue Team a menudo opera dentro de un <strong>Centro de Operaciones de Seguridad (SOC)</strong>. El SOC es el centro neurálgico de la defensa, donde los analistas utilizan una variedad de herramientas para centralizar
+                                    y correlacionar alertas de seguridad de toda la organización. Es un entorno de alta presión que opera 24/7 para garantizar una vigilancia constante y una capacidad de respuesta inmediata.</p>
+                            </div>
+                        </section>
+
+                        <!-- Sección 5: Habilidades Clave -->
+                        <section class="flex flex-col md:flex-row items-center md:space-x-12 fade-in-section">
+                            <div class="w-full md:w-1/2 mb-6 md:mb-0">
+                                <img src="https://images.pexels.com/photos/5439473/pexels-photo-5439473.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Un analista forense examinando datos en una tableta, representando la meticulosidad y el conocimiento técnico." class="rounded-lg shadow-lg w-full object-cover h-64">
+                            </div>
+                            <div class="w-full md:w-1/2">
+                                <h3>Habilidades Clave</h3>
+                                <p>Los profesionales del Blue Team deben tener un conocimiento profundo de <strong>sistemas operativos, redes y arquitecturas de seguridad</strong>. Son expertos en análisis de logs, forense digital e inteligencia de amenazas
+                                    (Threat Intelligence). A diferencia de la mentalidad ofensiva, deben ser meticulosos, pacientes y tener una gran capacidad de análisis para descubrir la narrativa completa de un ataque.</p>
+                            </div>
+                        </section>
+
+                        <!-- Sección 6: Herramientas Defensivas Comunes -->
+                        <section class="flex flex-col md:flex-row-reverse items-center md:space-x-reverse md:space-x-12 fade-in-section">
+                            <div class="w-full md:w-1/2 mb-6 md:mb-0">
+                                <img src="https://images.pexels.com/photos/3861958/pexels-photo-3861958.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Una persona interactuando con un dashboard de seguridad avanzado en una pantalla grande, simbolizando las herramientas de defensa."
+                                    class="rounded-lg shadow-lg w-full object-cover h-64">
+                            </div>
+                            <div class="w-full md:w-1/2">
+                                <h3>Herramientas Defensivas Comunes</h3>
+                                <p>El arsenal del Blue Team se centra en la visibilidad y el control. La herramienta principal es el <strong>SIEM</strong>, que agrega y correlaciona logs. Otras herramientas clave incluyen <strong>EDR</strong> para monitorear
+                                    endpoints,
+                                    <strong>IDS/IPS</strong> para la red, y plataformas de inteligencia de amenazas para mantenerse al día sobre nuevos adversarios.</p>
+                            </div>
+                        </section>
+
+                        <!-- Sección 7: El Ciclo de Mejora Continua -->
+                        <section class="flex flex-col md:flex-row items-center md:space-x-12 fade-in-section">
+                            <div class="w-full md:w-1/2 mb-6 md:mb-0">
+                                <img src="https://images.pexels.com/photos/5926382/pexels-photo-5926382.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Un desarrollador revisando código, lo que representa el proceso de aprendizaje y mejora continua después de un incidente."
+                                    class="rounded-lg shadow-lg w-full object-cover h-64">
+                            </div>
+                            <div class="w-full md:w-1/2">
+                                <h3>El Ciclo de Mejora Continua</h3>
+                                <p>La ciberseguridad no es un estado, es un proceso. El Blue Team es el motor de este proceso. Cada incidente es una oportunidad de aprendizaje. Las lecciones aprendidas se utilizan para <strong>ajustar configuraciones, crear nuevas reglas de detección y mejorar los procedimientos de respuesta</strong>.
+                                    Este ciclo constante de retroalimentación y mejora es lo que permite a una organización adaptarse y evolucionar.</p>
+                            </div>
+                        </section>
+
+                    </article>
                 </div>
-            </div>
+    </main>
+
+    <!-- Pie de Página -->
+    <footer class="bg-purple text-white mt-12">
+        <div class="container mx-auto px-6 py-8 text-center">
+            <p>&copy; 2025 Helpxion Fortsent. Todos los derechos reservados.</p>
+            <p class="text-gray-500 mt-2">Protegiendo tu mundo digital con inteligencia y estrategia.</p>
         </div>
-
-        <!-- Contenido informativo -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-            <!-- Objetivos del Blue Team -->
-            <div class="info-card bg-white p-6 rounded-xl animate-fade-in" style="animation-delay: 0.2s;">
-                <h3 class="text-xl font-bold text-[#4C1D95] mb-4 flex items-center">
-                    <i class="fas fa-bullseye mr-2"></i> Objetivos principales
-                </h3>
-                <ul class="space-y-3">
-                    <li class="flex items-start">
-                        <i class="fas fa-check-circle text-[#6D28D9] mt-1 mr-2"></i>
-                        <span>Proteger la infraestructura crítica y los datos sensibles</span>
-                    </li>
-                    <li class="flex items-start">
-                        <i class="fas fa-check-circle text-[#6D28D9] mt-1 mr-2"></i>
-                        <span>Detectar y responder rápidamente a incidentes de seguridad</span>
-                    </li>
-                    <li class="flex items-start">
-                        <i class="fas fa-check-circle text-[#6D28D9] mt-1 mr-2"></i>
-                        <span>Implementar y mantener controles de seguridad efectivos</span>
-                    </li>
-                    <li class="flex items-start">
-                        <i class="fas fa-check-circle text-[#6D28D9] mt-1 mr-2"></i>
-                        <span>Educar a los usuarios sobre prácticas seguras</span>
-                    </li>
-                </ul>
-            </div>
-
-            <!-- Herramientas comunes -->
-            <div class="info-card bg-white p-6 rounded-xl animate-fade-in" style="animation-delay: 0.4s;">
-                <h3 class="text-xl font-bold text-[#4C1D95] mb-4 flex items-center">
-                    <i class="fas fa-tools mr-2"></i> Herramientas comunes
-                </h3>
-                <div class="grid grid-cols-2 gap-3">
-                    <span class="bg-[#F5F3FF] text-[#6D28D9] px-3 py-2 rounded-md text-sm font-medium">SIEM</span>
-                    <span class="bg-[#F5F3FF] text-[#6D28D9] px-3 py-2 rounded-md text-sm font-medium">Firewalls</span>
-                    <span class="bg-[#F5F3FF] text-[#6D28D9] px-3 py-2 rounded-md text-sm font-medium">IDS/IPS</span>
-                    <span class="bg-[#F5F3FF] text-[#6D28D9] px-3 py-2 rounded-md text-sm font-medium">Antivirus</span>
-                    <span class="bg-[#F5F3FF] text-[#6D28D9] px-3 py-2 rounded-md text-sm font-medium">EDR</span>
-                    <span class="bg-[#F5F3FF] text-[#6D28D9] px-3 py-2 rounded-md text-sm font-medium">SOAR</span>
-                </div>
-            </div>
-        </div>
-
-        <!-- Roles en un Blue Team -->
-        <div class="info-card bg-white p-6 rounded-xl mb-8 animate-fade-in" style="animation-delay: 0.6s;">
-            <h3 class="text-xl font-bold text-[#4C1D95] mb-6 text-center">Roles en un Blue Team</h3>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div class="role-card bg-[#F5F3FF] p-4 rounded-lg text-center">
-                    <div class="role-icon bg-[#8B5CF6] w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-3">
-                        <i class="fas fa-desktop text-white text-2xl"></i>
-                    </div>
-                    <h4 class="font-bold text-[#4C1D95]">Analista de SOC</h4>
-                    <p class="text-sm mt-2">Monitorea y responde a alertas de seguridad las 24/7</p>
-                </div>
-
-                <div class="role-card bg-[#F5F3FF] p-4 rounded-lg text-center">
-                    <div class="role-icon bg-[#8B5CF6] w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-3">
-                        <i class="fas fa-user-shield text-white text-2xl"></i>
-                    </div>
-                    <h4 class="font-bold text-[#4C1D95]">Especialista en IR</h4>
-                    <p class="text-sm mt-2">Dirige la respuesta a incidentes de seguridad</p>
-                </div>
-
-                <div class="role-card bg-[#F5F3FF] p-4 rounded-lg text-center">
-                    <div class="role-icon bg-[#8B5CF6] w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-3">
-                        <i class="fas fa-network-wired text-white text-2xl"></i>
-                    </div>
-                    <h4 class="font-bold text-[#4C1D95]">Ingeniero de Seguridad</h4>
-                    <p class="text-sm mt-2">Diseña e implementa controles de seguridad</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Ciclo de vida de defensa -->
-        <div class="info-card bg-white p-6 rounded-xl animate-fade-in" style="animation-delay: 0.8s;">
-            <h3 class="text-xl font-bold text-[#4C1D95] mb-6 text-center">Ciclo de vida de defensa</h3>
-            <div class="flex flex-wrap justify-center">
-                <div class="w-full md:w-1/4 p-4 flex flex-col items-center">
-                    <div class="bg-[#6D28D9] w-14 h-14 rounded-full flex items-center justify-center text-white mb-2">
-                        <i class="fas fa-search"></i>
-                    </div>
-                    <h4 class="font-semibold text-[#4C1D95]">Detección</h4>
-                    <p class="text-sm text-center mt-1">Identificar potenciales amenazas</p>
-                </div>
-
-                <div class="w-full md:w-1/4 p-4 flex flex-col items-center">
-                    <div class="bg-[#6D28D9] w-14 h-14 rounded-full flex items-center justify-center text-white mb-2">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
-                    <h4 class="font-semibold text-[#4C1D95]">Protección</h4>
-                    <p class="text-sm text-center mt-1">Implementar defensas</p>
-                </div>
-
-                <div class="w-full md:w-1/4 p-4 flex flex-col items-center">
-                    <div class="bg-[#6D28D9] w-14 h-14 rounded-full flex items-center justify-center text-white mb-2">
-                        <i class="fas fa-bell"></i>
-                    </div>
-                    <h4 class="font-semibold text-[#4C1D95]">Respuesta</h4>
-                    <p class="text-sm text-center mt-1">Actuar ante incidentes</p>
-                </div>
-
-                <div class="w-full md:w-1/4 p-4 flex flex-col items-center">
-                    <div class="bg-[#6D28D9] w-14 h-14 rounded-full flex items-center justify-center text-white mb-2">
-                        <i class="fas fa-sync-alt"></i>
-                    </div>
-                    <h4 class="font-semibold text-[#4C1D95]">Recuperación</h4>
-                    <p class="text-sm text-center mt-1">Restaurar sistemas y aprender</p>
-                </div>
-            </div>
-        </div>
-    </div>
+    </footer>
 
     <script>
-        // Pequeña interacción para mejorar la experiencia
-        document.addEventListener('DOMContentLoaded', function() {
-            const roleCards = document.querySelectorAll('.role-card');
+        // Script para activar la animación al hacer scroll
+        const sections = document.querySelectorAll('.fade-in-section');
 
-            roleCards.forEach(card => {
-                card.addEventListener('mouseenter', function() {
-                    this.style.transform = 'translateY(-5px)';
-                    this.style.transition = 'transform 0.3s ease';
-                });
-
-                card.addEventListener('mouseleave', function() {
-                    this.style.transform = 'translateY(0)';
-                });
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                }
             });
+        }, {
+            threshold: 0.1 // La animación se activa cuando el 10% del elemento es visible
+        });
+
+        sections.forEach(section => {
+            observer.observe(section);
         });
     </script>
+
+</body>
+
+</html>

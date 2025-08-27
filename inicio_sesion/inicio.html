@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión - Helpxion Fortsent</title>
+    <!-- Tailwind CSS para un diseño rápido y responsivo -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts para una tipografía moderna -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Usamos la fuente Inter como predeterminada */
+        
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Definimos el color principal para usarlo con Tailwind */
+        
+        .bg-principal {
+            background-color: #9333ea;
+        }
+        
+        .hover\:bg-principal-dark:hover {
+            background-color: #7e22ce;
+        }
+        
+        .text-principal {
+            color: #9333ea;
+        }
+        
+        .hover\:text-principal-dark:hover {
+            color: #7e22ce;
+        }
+        
+        .focus\:ring-principal:focus {
+            --tw-ring-opacity: 1;
+            --tw-ring-color: rgba(147, 51, 234, var(--tw-ring-opacity));
+            box-shadow: 0 0 0 3px var(--tw-ring-color);
+        }
+        
+        .focus\:border-principal:focus {
+            border-color: #9333ea;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-900 flex items-center justify-center min-h-screen p-4">
+
+    <!-- Contenedor principal del formulario de inicio de sesión -->
+    <div class="w-full max-w-md bg-gray-800 rounded-2xl shadow-2xl shadow-purple-500/10 p-8 md:p-10">
+
+        <!-- Encabezado del formulario -->
+        <div class="text-center mb-8">
+            <h1 class="text-3xl md:text-4xl font-bold text-principal">Helpxion Fortsent</h1>
+            <p class="text-gray-400 mt-2">Bienvenido de nuevo, por favor inicia sesión.</p>
+        </div>
+
+        <!-- Formulario -->
+        <form action="#" method="POST" class="space-y-6">
+
+            <!-- Campo de Correo Electrónico -->
+            <div>
+                <label for="email" class="block text-sm font-medium text-gray-300 mb-2">
+                    Correo Electrónico
+                </label>
+                <input type="email" id="email" name="email" placeholder="tu.correo@ejemplo.com" required class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-gray-200 placeholder-gray-500 focus:outline-none focus:ring-principal focus:border-principal transition duration-200">
+            </div>
+
+            <!-- Campo de Contraseña -->
+            <div>
+                <label for="password" class="block text-sm font-medium text-gray-300 mb-2">
+                    Contraseña
+                </label>
+                <input type="password" id="password" name="password" placeholder="••••••••" required class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-gray-200 placeholder-gray-500 focus:outline-none focus:ring-principal focus:border-principal transition duration-200">
+            </div>
+
+            <!-- Enlace para recuperar contraseña -->
+            <div class="text-right">
+                <a href="#" class="text-sm font-medium text-principal hover:text-principal-dark transition duration-200">
+                    ¿Olvidaste tu contraseña?
+                </a>
+            </div>
+
+            <!-- Botón de Iniciar Sesión -->
+            <div>
+                <button type="submit" class="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-lg font-bold text-white bg-principal hover:bg-principal-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-purple-500 transition-transform transform hover:scale-105 duration-300">
+                    Iniciar Sesión
+                </button>
+            </div>
+        </form>
+
+        <!-- Pie del formulario para registrarse -->
+        <div class="mt-8 text-center">
+            <p class="text-sm text-gray-400">
+                ¿Aún no tienes una cuenta?
+                <a href="#" class="font-bold text-principal hover:text-principal-dark transition duration-200">
+                    Regístrate aquí
+                </a>
+            </p>
+        </div>
+    </div>
+
+</body>
+
+</html>
