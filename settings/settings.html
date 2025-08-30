@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configuración | Helpxion Fortsent</title>
+
+    <!-- TailwindCSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts: Sansation -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sansation:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Configuración personalizada de TailwindCSS y estilos adicionales -->
+    <style type="text/tailwindcss">
+        @layer base { html { -webkit-tap-highlight-color: transparent; } } /* Estilos personalizados adicionales */ body { background-color: #0a0a14; color: #e0e0e0; font-family: 'Sansation', sans-serif; cursor: auto; /* Usamos el cursor por defecto */ overflow-x:
+        hidden; } /* Scrollbar Estilizada */ ::-webkit-scrollbar { width: 8px; } ::-webkit-scrollbar-track { background: #1a1a2e; } ::-webkit-scrollbar-thumb { background: #7f5af0; border-radius: 10px; } ::-webkit-scrollbar-thumb:hover { background: #9d8eee;
+        } /* Clases de utilidad para JS */ .tab-active { background-color: rgba(127, 90, 240, 0.1); color: #7f5af0; border-left-color: #7f5af0; }
+    </style>
+
+    <script>
+        // Configuración de Tailwind para aplicar la paleta de colores y tipografía
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'background': '#0a0a14',
+                        'card': '#1a1a2e',
+                        'accent': '#7f5af0',
+                        'text': '#e0e0e0',
+                        'primary': '#0a0a14',
+                        'secondary': '#1a1a2e',
+                    },
+                    fontFamily: {
+                        sans: ['Sansation', 'sans-serif'],
+                    },
+                },
+            },
+        };
+    </script>
+</head>
+
+<body class="bg-background font-sans">
+
+    <div class="flex min-h-screen">
+        <!-- ===== Sidebar ===== -->
+        <aside id="sidebar" class="fixed top-0 left-0 z-40 w-64 h-screen bg-secondary/50 backdrop-blur-lg border-r border-card transition-transform -translate-x-full sm:translate-x-0">
+            <div class="h-full px-3 py-4 overflow-y-auto">
+                <!-- Logo -->
+                <a href="#" class="flex items-center ps-2.5 mb-8">
+                    <span class="self-center text-2xl font-bold whitespace-nowrap text-accent">Helpxion</span>
+                    <span class="self-center text-2xl font-normal whitespace-nowrap text-text">Fortsent</span>
+                </a>
+
+                <!-- Navegación de Configuración -->
+                <ul class="space-y-2 font-medium">
+                    <li>
+                        <a href="#perfil" class="tab-link flex items-center p-3 text-text rounded-lg border-l-4 border-transparent hover:bg-card/50 transition-all duration-300 tab-active">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path></svg>
+                            <span class="ms-3">Perfil</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#seguridad" class="tab-link flex items-center p-3 text-text rounded-lg border-l-4 border-transparent hover:bg-card/50 transition-all duration-300">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 1.944A11.954 11.954 0 012.166 5.023L2 5.051a12.012 12.012 0 00-1 7.02c0 3.398 2.368 6.29 5.599 7.318.16.03.322.05.485.068l.42.043c.274.028.55.043.826.043s.552-.015.826-.043l.42-.043a1.44 1.44 0 01.485-.068C16.632 18.36 19 15.459 19 12.071c0-2.673-.836-5.1-2.166-7.02l-.166-.228A11.954 11.954 0 0110 1.944zM9 13a1 1 0 011-1h.01a1 1 0 110 2H10a1 1 0 01-1-1zm1-3a1 1 0 00-1 1v1a1 1 0 102 0v-1a1 1 0 00-1-1z" clip-rule="evenodd"></path></svg>
+                            <span class="ms-3">Seguridad</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#notificaciones" class="tab-link flex items-center p-3 text-text rounded-lg border-l-4 border-transparent hover:bg-card/50 transition-all duration-300">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a6 6 0 00-6 6v3.586l-1.707 1.707A1 1 0 003 15h14a1 1 0 00.707-1.707L16 11.586V8a6 6 0 00-6-6zM10 18a3 3 0 01-3-3h6a3 3 0 01-3 3z"></path></svg>
+                            <span class="ms-3">Notificaciones</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#suscripciones" class="tab-link flex items-center p-3 text-text rounded-lg border-l-4 border-transparent hover:bg-card/50 transition-all duration-300">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M4 4a2 2 0 00-2 2v1h16V6a2 2 0 00-2-2H4z"></path><path fill-rule="evenodd" d="M18 9H2v5a2 2 0 002 2h12a2 2 0 002-2V9zM4 13a1 1 0 011-1h1a1 1 0 110 2H5a1 1 0 01-1-1zm5-1a1 1 0 100 2h1a1 1 0 100-2H9z" clip-rule="evenodd"></path></svg>
+                            <span class="ms-3">Suscripciones</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#preferencias" class="tab-link flex items-center p-3 text-text rounded-lg border-l-4 border-transparent hover:bg-card/50 transition-all duration-300">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.532 1.532 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.532 1.532 0 01-.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd"></path></svg>
+                            <span class="ms-3">Preferencias</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#privacidad" class="tab-link flex items-center p-3 text-text rounded-lg border-l-4 border-transparent hover:bg-card/50 transition-all duration-300">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M10 12a2 2 0 100-4 2 2 0 000 4z"></path><path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd"></path></svg>
+                            <span class="ms-3">Privacidad</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Botón para abrir sidebar en móvil -->
+        <button id="sidebar-toggle" class="sm:hidden fixed top-4 left-4 z-50 p-2 rounded-md bg-card/80 backdrop-blur-sm text-text">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+         </button>
+
+
+        <!-- ===== Contenido Principal ===== -->
+        <div class="p-4 sm:ml-64 flex-grow">
+            <div class="p-4 rounded-lg mt-12 sm:mt-4" style="background: radial-gradient(circle at top right, rgba(127, 90, 240, 0.1), transparent 40%)">
+                <h1 class="text-3xl font-bold mb-6 text-text">Configuración</h1>
+
+                <!-- Contenedor de Pestañas -->
+                <div id="tab-content">
+
+                    <!-- == Perfil == -->
+                    <div id="perfil" class="tab-panel space-y-8">
+                        <div class="bg-card p-6 rounded-lg shadow-lg">
+                            <h2 class="text-xl font-bold mb-4">Información del Perfil</h2>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <label for="name" class="block mb-2 text-sm font-medium text-gray-400">Nombre Completo</label>
+                                    <input type="text" id="name" class="bg-primary border border-card/50 text-text text-sm rounded-lg focus:ring-accent focus:border-accent block w-full p-2.5 transition-colors duration-300" value="Admin User" required>
+                                </div>
+                                <div>
+                                    <label for="email" class="block mb-2 text-sm font-medium text-gray-400">Correo Electrónico</label>
+                                    <input type="email" id="email" class="bg-primary border border-card/50 text-text text-sm rounded-lg focus:ring-accent focus:border-accent block w-full p-2.5 transition-colors duration-300" value="admin@helpxion.com" required>
+                                </div>
+                                <div>
+                                    <label for="phone" class="block mb-2 text-sm font-medium text-gray-400">Teléfono</label>
+                                    <input type="tel" id="phone" class="bg-primary border border-card/50 text-text text-sm rounded-lg focus:ring-accent focus:border-accent block w-full p-2.5 transition-colors duration-300" value="+00 000 000 000" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-card p-6 rounded-lg shadow-lg flex flex-col sm:flex-row items-center gap-6">
+                            <img class="w-24 h-24 rounded-full object-cover" src="https://i.pravatar.cc/150?u=a042581f4e29026704d" alt="Avatar">
+                            <div>
+                                <h3 class="text-lg font-bold">Avatar</h3>
+                                <p class="text-sm text-gray-400 mb-3">Sube una nueva imagen de perfil.</p>
+                                <input type="file" id="avatar" class="hidden">
+                                <label for="avatar" class="cursor-pointer bg-accent/20 text-accent font-bold py-2 px-4 rounded-lg hover:bg-accent/30 transition-all duration-300 text-sm">
+                                    Cambiar Avatar
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="flex justify-end">
+                            <button class="bg-accent text-white font-bold py-2 px-6 rounded-lg hover:bg-opacity-80 transition-all duration-300">Guardar Cambios</button>
+                        </div>
+                    </div>
+
+                    <!-- == Seguridad == -->
+                    <div id="seguridad" class="tab-panel hidden space-y-8">
+                        <div class="bg-card p-6 rounded-lg shadow-lg">
+                            <h2 class="text-xl font-bold mb-4">Cambiar Contraseña</h2>
+                            <div class="space-y-4 max-w-md">
+                                <div>
+                                    <label for="current_password" class="block mb-2 text-sm font-medium text-gray-400">Contraseña Actual</label>
+                                    <input type="password" id="current_password" class="bg-primary border border-card/50 text-text text-sm rounded-lg focus:ring-accent focus:border-accent block w-full p-2.5 transition-colors duration-300">
+                                </div>
+                                <div>
+                                    <label for="new_password" class="block mb-2 text-sm font-medium text-gray-400">Nueva Contraseña</label>
+                                    <input type="password" id="new_password" class="bg-primary border border-card/50 text-text text-sm rounded-lg focus:ring-accent focus:border-accent block w-full p-2.5 transition-colors duration-300">
+                                </div>
+                                <div>
+                                    <label for="confirm_password" class="block mb-2 text-sm font-medium text-gray-400">Confirmar Nueva Contraseña</label>
+                                    <input type="password" id="confirm_password" class="bg-primary border border-card/50 text-text text-sm rounded-lg focus:ring-accent focus:border-accent block w-full p-2.5 transition-colors duration-300">
+                                </div>
+                                <div class="pt-2">
+                                    <button class="bg-accent text-white font-bold py-2 px-6 rounded-lg hover:bg-opacity-80 transition-all duration-300">Actualizar Contraseña</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-card p-6 rounded-lg shadow-lg">
+                            <h2 class="text-xl font-bold mb-4">Autenticación de Múltiples Factores (MFA)</h2>
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <h3 class="font-bold">Activar 2FA/MFA</h3>
+                                    <p class="text-sm text-gray-400">Añade una capa extra de seguridad a tu cuenta.</p>
+                                </div>
+                                <label class="inline-flex items-center cursor-pointer">
+                                  <input type="checkbox" value="" class="sr-only peer" checked>
+                                  <div class="relative w-11 h-6 bg-primary peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-accent/30 rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-accent"></div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="bg-card p-6 rounded-lg shadow-lg">
+                            <h2 class="text-xl font-bold mb-4">Sesiones Activas</h2>
+                            <ul class="space-y-4">
+                                <li class="flex items-center justify-between p-3 bg-primary/50 rounded-lg">
+                                    <div>
+                                        <p class="font-semibold">Chrome en Windows 11 <span class="text-green-400 text-sm">(Sesión Actual)</span></p>
+                                        <p class="text-sm text-gray-400">Pereira, CO - IP: 192.168.1.100</p>
+                                    </div>
+                                </li>
+                                <li class="flex items-center justify-between p-3 bg-primary/50 rounded-lg">
+                                    <div>
+                                        <p class="font-semibold">Safari en macOS</p>
+                                        <p class="text-sm text-gray-400">Hace 2 días - IP: 8.8.8.8</p>
+                                    </div>
+                                    <button class="text-red-500 hover:text-red-400 text-sm font-semibold transition-colors duration-300">Cerrar sesión</button>
+                                </li>
+                            </ul>
+                            <button class="mt-6 w-full md:w-auto bg-red-600/20 text-red-400 font-bold py-2 px-6 rounded-lg hover:bg-red-600/30 transition-all duration-300">Cerrar todas las demás sesiones</button>
+                        </div>
+                    </div>
+
+                    <!-- == Notificaciones == -->
+                    <div id="notificaciones" class="tab-panel hidden space-y-8">
+                        <div class="bg-card p-6 rounded-lg shadow-lg">
+                            <h2 class="text-xl font-bold mb-4">Canales de Notificación</h2>
+                            <div class="space-y-4">
+                                <div class="flex items-center justify-between">
+                                    <div>
+                                        <h3 class="font-bold">Notificaciones por Correo Electrónico</h3>
+                                        <p class="text-sm text-gray-400">Recibe alertas y resúmenes en tu email.</p>
+                                    </div>
+                                    <label class="inline-flex items-center cursor-pointer">
+                                      <input type="checkbox" value="" class="sr-only peer" checked>
+                                      <div class="relative w-11 h-6 bg-primary peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-accent/30 rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-accent"></div>
+                                    </label>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <div>
+                                        <h3 class="font-bold">Notificaciones Push</h3>
+                                        <p class="text-sm text-gray-400">Recibe alertas instantáneas en tus dispositivos.</p>
+                                    </div>
+                                    <label class="inline-flex items-center cursor-pointer">
+                                      <input type="checkbox" value="" class="sr-only peer">
+                                      <div class="relative w-11 h-6 bg-primary peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-accent/30 rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-accent"></div>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-card p-6 rounded-lg shadow-lg">
+                            <h2 class="text-xl font-bold mb-4">Nivel de Alertas</h2>
+                            <p class="text-sm text-gray-400 mb-4">Elige qué tipo de notificaciones deseas recibir.</p>
+                            <div class="flex flex-col md:flex-row gap-4">
+                                <div class="flex-1">
+                                    <input type="radio" id="criticas" name="alertLevel" value="criticas" class="hidden peer" checked>
+                                    <label for="criticas" class="inline-block w-full p-4 text-gray-400 bg-primary border-2 border-card/50 rounded-lg cursor-pointer peer-checked:border-accent peer-checked:text-accent hover:text-gray-300 hover:bg-primary/50 transition-all duration-300">                           
+                                        <div class="block">
+                                            <div class="w-full text-lg font-semibold">Solo Críticas</div>
+                                            <div class="w-full text-sm">Recibir solo alertas de alta prioridad.</div>
+                                        </div>
+                                    </label>
+                                </div>
+                                <div class="flex-1">
+                                    <input type="radio" id="todas" name="alertLevel" value="todas" class="hidden peer">
+                                    <label for="todas" class="inline-block w-full p-4 text-gray-400 bg-primary border-2 border-card/50 rounded-lg cursor-pointer peer-checked:border-accent peer-checked:text-accent hover:text-gray-300 hover:bg-primary/50 transition-all duration-300">
+                                        <div class="block">
+                                            <div class="w-full text-lg font-semibold">Todas</div>
+                                            <div class="w-full text-sm">Recibir todas las notificaciones del sistema.</div>
+                                        </div>
+                                    </label>
+                                </div>
+                                <div class="flex-1">
+                                    <input type="radio" id="resumen" name="alertLevel" value="resumen" class="hidden peer">
+                                    <label for="resumen" class="inline-block w-full p-4 text-gray-400 bg-primary border-2 border-card/50 rounded-lg cursor-pointer peer-checked:border-accent peer-checked:text-accent hover:text-gray-300 hover:bg-primary/50 transition-all duration-300">
+                                        <div class="block">
+                                            <div class="w-full text-lg font-semibold">Resumen Diario</div>
+                                            <div class="w-full text-sm">Un único email diario con el resumen.</div>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex justify-end">
+                            <button class="bg-accent text-white font-bold py-2 px-6 rounded-lg hover:bg-opacity-80 transition-all duration-300">Guardar Cambios</button>
+                        </div>
+                    </div>
+
+                    <!-- == Suscripciones == -->
+                    <div id="suscripciones" class="tab-panel hidden space-y-8">
+                        <div class="bg-card p-6 rounded-lg shadow-lg">
+                            <div class="flex flex-col md:flex-row justify-between md:items-center">
+                                <div>
+                                    <h2 class="text-xl font-bold mb-1">Plan Actual</h2>
+                                    <p class="text-4xl font-bold text-accent">Enterprise</p>
+                                    <p class="text-gray-400 mt-1">Tu plan se renueva el 25 de Septiembre, 2025.</p>
+                                </div>
+                                <button class="mt-4 md:mt-0 bg-accent text-white font-bold py-3 px-6 rounded-lg hover:bg-opacity-80 transition-all duration-300">Actualizar Plan</button>
+                            </div>
+                        </div>
+
+                        <div class="bg-card p-6 rounded-lg shadow-lg">
+                            <h2 class="text-xl font-bold mb-4">Historial de Pagos</h2>
+                            <div class="overflow-x-auto">
+                                <table class="w-full text-sm text-left text-gray-400">
+                                    <thead class="text-xs text-gray-300 uppercase bg-primary/50">
+                                        <tr>
+                                            <th scope="col" class="px-6 py-3">Fecha</th>
+                                            <th scope="col" class="px-6 py-3">Monto</th>
+                                            <th scope="col" class="px-6 py-3">Plan</th>
+                                            <th scope="col" class="px-6 py-3">Factura</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="border-b border-card/50">
+                                            <td class="px-6 py-4">25 de Agosto, 2025</td>
+                                            <td class="px-6 py-4">$499.00 USD</td>
+                                            <td class="px-6 py-4">Enterprise</td>
+                                            <td class="px-6 py-4"><a href="#" class="font-medium text-accent hover:underline">Descargar</a></td>
+                                        </tr>
+                                        <tr class="border-b border-card/50">
+                                            <td class="px-6 py-4">25 de Julio, 2025</td>
+                                            <td class="px-6 py-4">$499.00 USD</td>
+                                            <td class="px-6 py-4">Enterprise</td>
+                                            <td class="px-6 py-4"><a href="#" class="font-medium text-accent hover:underline">Descargar</a></td>
+                                        </tr>
+                                        <tr class="border-b border-card/50">
+                                            <td class="px-6 py-4">25 de Junio, 2025</td>
+                                            <td class="px-6 py-4">$499.00 USD</td>
+                                            <td class="px-6 py-4">Enterprise</td>
+                                            <td class="px-6 py-4"><a href="#" class="font-medium text-accent hover:underline">Descargar</a></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- == Preferencias == -->
+                    <div id="preferencias" class="tab-panel hidden space-y-8">
+                        <div class="bg-card p-6 rounded-lg shadow-lg">
+                            <h2 class="text-xl font-bold mb-4">General</h2>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <label for="language" class="block mb-2 text-sm font-medium text-gray-400">Idioma</label>
+                                    <select id="language" class="bg-primary border border-card/50 text-text text-sm rounded-lg focus:ring-accent focus:border-accent block w-full p-2.5 transition-colors duration-300">
+                                        <option>Español</option>
+                                        <option>English</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label for="timezone" class="block mb-2 text-sm font-medium text-gray-400">Zona Horaria</label>
+                                    <select id="timezone" class="bg-primary border border-card/50 text-text text-sm rounded-lg focus:ring-accent focus:border-accent block w-full p-2.5 transition-colors duration-300">
+                                        <option>(GMT-5:00) Bogotá, Lima, Quito</option>
+                                        <option>(GMT-4:00) Caracas, La Paz</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-card p-6 rounded-lg shadow-lg">
+                            <h2 class="text-xl font-bold mb-4">Reportes</h2>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <label class="block mb-2 text-sm font-medium text-gray-400">Frecuencia de Reportes</label>
+                                    <select class="bg-primary border border-card/50 text-text text-sm rounded-lg focus:ring-accent focus:border-accent block w-full p-2.5 transition-colors duration-300">
+                                        <option>Diario</option>
+                                        <option selected>Semanal</option>
+                                        <option>Mensual</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block mb-2 text-sm font-medium text-gray-400">Vista Predeterminada</label>
+                                    <select class="bg-primary border border-card/50 text-text text-sm rounded-lg focus:ring-accent focus:border-accent block w-full p-2.5 transition-colors duration-300">
+                                        <option>Gráficas</option>
+                                        <option>Tablas</option>
+                                    </select>
+                                </div>
+                                <div class="md:col-span-2">
+                                    <label for="signature" class="block mb-2 text-sm font-medium text-gray-400">Firma digital para reportes PDF</label>
+                                    <input type="text" id="signature" class="bg-primary border border-card/50 text-text text-sm rounded-lg focus:ring-accent focus:border-accent block w-full p-2.5 transition-colors duration-300" placeholder="Ej: Analista de Seguridad, Helpxion Corp.">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-card p-6 rounded-lg shadow-lg">
+                            <h2 class="text-xl font-bold mb-4">Integraciones</h2>
+                            <div class="flex items-center justify-between p-3 bg-primary/50 rounded-lg">
+                                <div class="flex items-center gap-4">
+                                    <img src="https://logowik.com/content/uploads/images/slack-new-2019-logo4398.jpg" class="w-8 h-8 rounded" alt="[Logo de Slack]">
+                                    <div>
+                                        <p class="font-semibold">Slack</p>
+                                        <p class="text-sm text-gray-400">Recibe notificaciones en tus canales de Slack.</p>
+                                    </div>
+                                </div>
+                                <button class="bg-accent/20 text-accent font-bold py-2 px-4 rounded-lg hover:bg-accent/30 transition-all duration-300 text-sm">Conectar</button>
+                            </div>
+                        </div>
+
+                        <div class="flex justify-end">
+                            <button class="bg-accent text-white font-bold py-2 px-6 rounded-lg hover:bg-opacity-80 transition-all duration-300">Guardar Preferencias</button>
+                        </div>
+                    </div>
+
+                    <!-- == Privacidad == -->
+                    <div id="privacidad" class="tab-panel hidden space-y-8">
+                        <div class="bg-card p-6 rounded-lg shadow-lg">
+                            <h2 class="text-xl font-bold mb-4">Gestión de Datos</h2>
+                            <div class="space-y-4">
+                                <div class="flex items-center justify-between">
+                                    <div>
+                                        <h3 class="font-bold">Descargar mis datos</h3>
+                                        <p class="text-sm text-gray-400">Obtén una copia de todos tus datos en formato JSON.</p>
+                                    </div>
+                                    <button class="bg-accent/20 text-accent font-bold py-2 px-4 rounded-lg hover:bg-accent/30 transition-all duration-300 text-sm">Solicitar Archivo</button>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <div>
+                                        <h3 class="font-bold">Visibilidad del Perfil</h3>
+                                        <p class="text-sm text-gray-400">Permitir que otros miembros de la organización vean tu perfil.</p>
+                                    </div>
+                                    <label class="inline-flex items-center cursor-pointer">
+                                      <input type="checkbox" value="" class="sr-only peer" checked>
+                                      <div class="relative w-11 h-6 bg-primary peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-accent/30 rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-accent"></div>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-red-900/20 border border-red-500/50 p-6 rounded-lg shadow-lg">
+                            <h2 class="text-xl font-bold text-red-400 mb-2">Eliminar Cuenta</h2>
+                            <p class="text-red-300 mb-4">Esta acción es irreversible. Se eliminarán permanentemente todos tus datos, proyectos y configuraciones asociados a Helpxion Fortsent.</p>
+                            <button class="w-full md:w-auto bg-red-600 text-white font-bold py-2 px-6 rounded-lg hover:bg-red-700 transition-all duration-300">Solicitar Eliminación de Cuenta</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        {
+
+            // --- Lógica de Pestañas (Tabs) ---
+            const tabLinks = document.querySelectorAll('.tab-link');
+            const tabPanels = document.querySelectorAll('.tab-panel');
+            const sidebar = document.getElementById('sidebar');
+            const sidebarToggle = document.getElementById('sidebar-toggle');
+
+            // Función para cambiar de pestaña
+            function switchTab(targetId) {
+                // Ocultar todos los paneles
+                tabPanels.forEach(panel => {
+                    panel.classList.add('hidden');
+                });
+
+                // Quitar clase activa de todos los links
+                tabLinks.forEach(link => {
+                    link.classList.remove('tab-active');
+                });
+
+                // Mostrar el panel correcto y activar el link
+                const targetPanel = document.getElementById(targetId);
+                const targetLink = document.querySelector(`a[href="#${targetId}"]`);
+
+                if (targetPanel && targetLink) {
+                    targetPanel.classList.remove('hidden');
+                    targetLink.classList.add('tab-active');
+                }
+
+                // En móvil, ocultar la sidebar después de seleccionar una opción
+                if (window.innerWidth < 640) {
+                    sidebar.classList.add('-translate-x-full');
+                }
+            }
+
+            // Añadir evento de click a cada link de pestaña
+            tabLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetId = link.getAttribute('href').substring(1);
+                    window.location.hash = targetId; // Actualiza la URL para compartir
+                    switchTab(targetId);
+                });
+            });
+
+            // Lógica para el botón de la sidebar en móvil
+            sidebarToggle.addEventListener('click', () => {
+                sidebar.classList.toggle('-translate-x-full');
+            });
+
+
+            // Activar pestaña basada en el hash de la URL al cargar
+            function checkHash() {
+                if (window.location.hash) {
+                    const initialTabId = window.location.hash.substring(1);
+                    const validTab = Array.from(tabLinks).some(link => link.getAttribute('href') === `#${initialTabId}`);
+                    if (validTab) {
+                        switchTab(initialTabId);
+                    } else {
+                        // Activa la primera pestaña por defecto si el hash no es válido
+                        switchTab('perfil');
+                    }
+                } else {
+                    // Activa la primera pestaña por defecto si no hay hash
+                    switchTab('perfil');
+                }
+            }
+
+            // Revisa el hash al cargar la página
+            checkHash();
+
+            // Revisa el hash si cambia (ej. botones de atrás/adelante del navegador)
+            window.addEventListener('hashchange', checkHash);
+        };
+    </script>
+</body>
+
+</html>
