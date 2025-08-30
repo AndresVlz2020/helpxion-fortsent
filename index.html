@@ -8,7 +8,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Sansation:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
          :root {
             --primary: #6d28d9;
             --primary-dark: #5b21b6;
@@ -18,7 +18,7 @@
         }
         
         body {
-            font-family: sans-serif;
+            font-family: 'Sansation', sans-serif;
             background-color: var(--dark);
             color: var(--light);
             scroll-behavior: smooth;
@@ -112,10 +112,30 @@
         .active-nav::after {
             width: 100%;
         }
+        
+        #mouse-fog {
+            position: fixed;
+            width: 250px;
+            height: 250px;
+            background: radial-gradient(circle, rgba(127, 67, 222, 0.345) 0%, rgba(109, 40, 217, 0) 50%);
+            /* Gradiente más concentrado y sutil */
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            transform: translate(-50%, -50%);
+            transition: 0s ease-out;
+            /* Movimiento más suave */
+            left: -999px;
+            /* Ocultar inicialmente */
+            filter: blur(0px);
+            /* Efecto de desenfoque para una apariencia de niebla */
+        }
     </style>
 </head>
 
 <body class="network-pattern">
+    <!-- Mouse Fog Effect -->
+    <div id="mouse-fog"></div>
     <!-- Header -->
     <header class="bg-gray-900/90 backdrop-blur-md fixed w-full z-50 border-b border-gray-800">
         <div class="container mx-auto px-4 py-3">
@@ -208,18 +228,7 @@
                 </div>
                 <div class="lg:w-1/2 relative">
                     <div class="terminal p-1 max-w-lg mx-auto">
-                        <div class="terminal-content">
-                            <p class="text-green-400 mb-4">$ <span class="text-white">security_scan --target=your_business --mode=full</span></p>
-                            <p class="text-gray-400 mb-2">> Iniciando análisis de vulnerabilidades...</p>
-                            <p class="text-gray-400 mb-2">> Escaneando puertos y servicios...</p>
-                            <p class="text-yellow-400 mb-2">! Advertencia: 3 vulnerabilidades críticas detectadas</p>
-                            <p class="text-gray-400 mb-2">> Analizando patrones de ataque...</p>
-                            <p class="text-green-400">> Soluciones recomendadas:</p>
-                            <p class="text-white ml-4">- Parchear CVE-2023-12345</p>
-                            <p class="text-white ml-4">- Configurar WAF para mitigar XSS</p>
-                            <p class="text-white ml-4">- Implementar autenticación MFA</p>
-                            <p class="text-purple-400 mt-4">$ <span class="text-white blink">_</span></p>
-                        </div>
+                        <div id="terminal-output" class="terminal-content"></div>
                     </div>
                     <div class="absolute -top-10 -right-10 w-32 h-32 bg-purple-600/20 rounded-full blur-xl"></div>
                     <div class="absolute -bottom-10 -left-10 w-40 h-40 bg-purple-600/20 rounded-full blur-xl"></div>
@@ -552,7 +561,7 @@
             
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
                 <!-- Personal Plan -->
-                <div class="bg-gray-800/50 rounded-xl p-8 border border-gray-700 hover:border-purple-500 transition">
+                <div class="bg-gray-800/50 rounded-xl p-8 border border-gray-700 hover:border-purple-500 transition hover:-translate-y-2 duration-300">
                     <h3 class="text-xl font-bold mb-2">Protección Personal</h3>
                     <p class="text-gray-400 text-sm mb-6">Ideal para individuos y familias</p>
                     <div class="text-4xl font-bold mb-6">$49<span class="text-lg text-gray-400">/mes</span></div>
@@ -579,7 +588,7 @@
                 </div>
                 
                 <!-- Business Plan -->
-                <div class="bg-gray-800/50 rounded-xl p-8 border border-purple-500 relative glow scale-105 z-10">
+                <div class="bg-gray-800/50 rounded-xl p-8 border border-purple-500 relative glow z-10 transition hover:-translate-y-2 duration-300">
                     <div class="absolute top-0 right-0 bg-purple-600 text-white text-xs font-bold px-3 py-1 rounded-bl-lg rounded-tr-lg">POPULAR</div>
                     <h3 class="text-xl font-bold mb-2">Empresa Pequeña</h3>
                     <p class="text-gray-400 text-sm mb-6">Para startups y pymes</p>
@@ -607,7 +616,7 @@
                 </div>
                 
                 <!-- Enterprise Plan -->
-                <div class="bg-gray-800/50 rounded-xl p-8 border border-gray-700 hover:border-purple-500 transition">
+                <div class="bg-gray-800/50 rounded-xl p-8 border border-gray-700 hover:border-purple-500 transition hover:-translate-y-2 duration-300">
                     <h3 class="text-xl font-bold mb-2">Empresa Grande</h3>
                     <p class="text-gray-400 text-sm mb-6">Soluciones corporativas completas</p>
                     <div class="text-4xl font-bold mb-6">Personalizado</div>
@@ -1214,6 +1223,97 @@
                     icon.classList.toggle('fa-chevron-down');
                     icon.classList.toggle('fa-chevron-up');
                 }
+            });
+        });
+
+        // Typewriter effect for the terminal
+        document.addEventListener('DOMContentLoaded', function() {
+            const terminalOutput = document.getElementById('terminal-output');
+            if (!terminalOutput) return;
+
+            const linesToType = [{
+                text: '$ ./hfc_scanner --target=your_business --deep',
+                class: 'text-green-400',
+                delay: 100
+            }, {
+                text: '>> [INFO] Initializing Helpxion Fortsent Scanner v2.1...',
+                class: 'text-gray-400',
+                delay: 800
+            }, {
+                text: '>> [INFO] Target locked: your_business.com',
+                class: 'text-gray-400',
+                delay: 400
+            }, {
+                text: '>> [PROC] Starting port scan...',
+                class: 'text-gray-400',
+                delay: 400
+            }, {
+                text: '>> [WARN] Port 22 (SSH) - Open. Bruteforce possible.',
+                class: 'text-yellow-400',
+                delay: 900
+            }, {
+                text: '>> [CRITICAL] SQL Injection detected on /login.php',
+                class: 'text-red-500',
+                delay: 1200
+            }, {
+                text: '>> [INFO] Scan complete. 2 vulnerabilities found.',
+                class: 'text-gray-400',
+                delay: 800
+            }, {
+                text: '$ ',
+                class: 'text-purple-400 mt-4',
+                final_line: true,
+                delay: 400
+            }];
+
+            let currentLine = 0;
+            const typingSpeed = 35;
+
+            function typeLine() {
+                if (currentLine >= linesToType.length) return;
+
+                const lineData = linesToType[currentLine];
+                const p = document.createElement('p');
+                p.className = `${lineData.class} mb-2`;
+                if (lineData.final_line) p.className = lineData.class;
+                terminalOutput.appendChild(p);
+
+                let charIndex = 0;
+                (function typeChar() {
+                    if (charIndex < lineData.text.length) {
+                        p.textContent = lineData.text.substring(0, charIndex + 1);
+                        charIndex++;
+                        setTimeout(typeChar, typingSpeed);
+                    } else {
+                        if (lineData.final_line) p.innerHTML = lineData.text + '<span class="text-white blink">_</span>';
+                        currentLine++;
+                        setTimeout(typeLine, lineData.delay);
+                    }
+                })();
+            }
+
+            const terminal = document.querySelector('.terminal');
+            const observer = new IntersectionObserver(entries => {
+                if (entries[0].isIntersecting) {
+                    terminalOutput.innerHTML = '';
+                    currentLine = 0;
+                    typeLine();
+                    observer.unobserve(terminal);
+                }
+            }, {
+                threshold: 0.5
+            });
+
+            observer.observe(terminal);
+        });
+
+        // Efecto de niebla que sigue al cursor
+        const fog = document.getElementById('mouse-fog');
+        document.addEventListener('mousemove', (e) => {
+            // Usamos requestAnimationFrame para optimizar el rendimiento
+            requestAnimationFrame(() => {
+                fog.style.left = e.clientX + 'px';
+                fog.style.top = e.clientY + 'px';
             });
         });
     </script>
