@@ -171,9 +171,25 @@
                 </nav>
 
                 <!-- CTA Buttons -->
-                <div class="hidden md:flex space-x-4">
-                    <button onclick="window.location.href='#report'" class="px-4 py-2 bg-red-600 hover:bg-red-700 rounded-md text-white text-sm font-medium transition transform hover:scale-105 shadow-md hover:shadow-red-500/20">Reportar Incidente</button>
+                <div class="hidden md:flex items-center space-x-4">
                     <button onclick="window.location.href='#consult'" class="px-4 py-2 bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 rounded-md text-white text-sm font-medium transition transform hover:scale-105 shadow-md hover:shadow-purple-500/20">Consulta Gratis</button>
+
+                    <!-- Profile Dropdown -->
+                    <div class="relative">
+                        <button id="profile-menu-button" class="flex text-sm bg-gray-800 rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-900 focus:ring-purple-500">
+                            <span class="sr-only">Abrir menú de usuario</span>
+                            <img class="h-10 w-10 rounded-full border-2 border-purple-500/50 hover:border-purple-500 transition" src="https://randomuser.me/api/portraits/men/32.jpg" alt="User Avatar">
+                        </button>
+
+                        <!-- Dropdown menu -->
+                        <div id="profile-menu" class="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg py-1 bg-gray-800 ring-1 ring-black ring-opacity-5 focus:outline-none hidden z-[70]" role="menu" aria-orientation="vertical" aria-labelledby="profile-menu-button">
+                            <a href="inicio_sesion/inicio.html" class="flex items-center px-4 py-2 text-sm text-gray-300 hover:bg-gray-700 hover:text-white" role="menuitem"><i class="fas fa-user-circle fa-fw w-6 mr-2"></i>Mi Perfil</a>
+                            <a href="#" class="flex items-center px-4 py-2 text-sm text-gray-300 hover:bg-gray-700 hover:text-white" role="menuitem"><i class="fas fa-user-cog fa-fw w-6 mr-2"></i>Ajustes</a>
+                            <a href="inicio_sesion/inicio.html" class="flex items-center px-4 py-2 text-sm text-gray-300 hover:bg-gray-700 hover:text-white" role="menuitem"><i class="fas fa-briefcase fa-fw w-6 mr-2"></i>Mis Casos</a>
+                            <div class="border-t border-gray-700 my-1"></div>
+                            <a href="#" class="flex items-center px-4 py-2 text-sm text-red-400 hover:bg-gray-700 hover:text-red-300" role="menuitem"><i class="fas fa-sign-out-alt fa-fw w-6 mr-2"></i>Cerrar Sesión</a>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -1381,6 +1397,26 @@
         sidebarLinks.forEach(link => {
             link.addEventListener('click', closeSidebar);
         });
+
+        // Desktop profile dropdown
+        const profileMenuButton = document.getElementById('profile-menu-button');
+        const profileMenu = document.getElementById('profile-menu');
+
+        if (profileMenuButton && profileMenu) {
+            profileMenuButton.addEventListener('click', (event) => {
+                event.stopPropagation(); // Prevent the window click listener from firing immediately
+                profileMenu.classList.toggle('hidden');
+            });
+
+            // Close dropdown if clicked outside
+            window.addEventListener('click', (event) => {
+                if (!profileMenu.classList.contains('hidden')) {
+                    if (!profileMenu.contains(event.target) && !profileMenuButton.contains(event.target)) {
+                        profileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        }
     </script>
 </body>
 
