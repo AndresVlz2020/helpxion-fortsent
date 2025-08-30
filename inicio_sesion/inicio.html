@@ -7,6 +7,8 @@
     <title>Iniciar Sesión - Helpxion Fortsent</title>
     <!-- Tailwind CSS para un diseño rápido y responsivo -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Fonts para una tipografía moderna -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -90,6 +92,28 @@
                 </button>
             </div>
         </form>
+
+        <!-- Divisor "O" -->
+        <div class="relative my-8">
+            <div class="absolute inset-0 flex items-center" aria-hidden="true">
+                <div class="w-full border-t border-gray-600"></div>
+            </div>
+            <div class="relative flex justify-center text-sm">
+                <span class="px-2 bg-gray-800 text-gray-400">O inicia sesión con</span>
+            </div>
+        </div>
+
+        <!-- Opciones de inicio de sesión social -->
+        <div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <a href="#" class="w-full inline-flex items-center justify-center py-3 px-4 border border-gray-600 rounded-lg shadow-sm bg-gray-700 text-sm font-medium text-gray-300 hover:bg-gray-600 transition duration-200">
+                    <i class="fab fa-google text-lg mr-3"></i> Google
+                </a>
+                <a href="#" class="w-full inline-flex items-center justify-center py-3 px-4 border border-gray-600 rounded-lg shadow-sm bg-gray-700 text-sm font-medium text-gray-300 hover:bg-gray-600 transition duration-200">
+                    <i class="fab fa-github text-lg mr-3"></i> GitHub
+                </a>
+            </div>
+        </div>
 
         <!-- Pie del formulario para registrarse -->
         <div class="mt-8 text-center">

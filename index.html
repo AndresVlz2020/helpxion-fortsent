@@ -22,6 +22,7 @@
             background-color: var(--dark);
             color: var(--light);
             scroll-behavior: smooth;
+            caret-color: transparent;
         }
         
         .gradient-bg {
@@ -130,6 +131,14 @@
             filter: blur(0px);
             /* Efecto de desenfoque para una apariencia de niebla */
         }
+        /* Restore caret for input fields */
+        
+        input,
+        textarea,
+        [contenteditable="true"] {
+            caret-color: var(--primary);
+            /* Or 'auto' to use browser default */
+        }
     </style>
 </head>
 
@@ -141,8 +150,8 @@
         <div class="container mx-auto px-4 py-3">
             <div class="flex justify-between items-center">
                 <!-- Logo -->
-                <div class="flex items-center space-x-2">
-                    <img src="assets/img/hfc-logo.png" alt="Helpxion Fortsent Logo" class="w-16 h-16">
+                <div class="flex items-center space-x-4">
+                    <img src="assets/img/hfc-logo.png" alt="Helpxion Fortsent Logo" class="w-12 h-12">
                     <div class="flex flex-col justify-center">
                         <h1 class="text-xl font-bold leading-tight">
                             HELPXION <span class="gradient-text">FORTSENT</span>
@@ -172,7 +181,8 @@
 
                 <!-- CTA Buttons -->
                 <div class="hidden md:flex items-center space-x-4">
-                    <button onclick="window.location.href='#consult'" class="px-4 py-2 bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 rounded-md text-white text-sm font-medium transition transform hover:scale-105 shadow-md hover:shadow-purple-500/20">Consulta Gratis</button>
+                    <button onclick="window.location.href='#report'" class="px-4 py-2 bg-red-600 hover:bg-red-700 rounded-md text-white text-sm font-medium transition transform hover:scale-105 shadow-md hover:shadow-red-500/20">Reportar Caso</button>
+
 
                     <!-- Profile Dropdown -->
                     <div class="relative">
@@ -248,14 +258,14 @@
     <section id="home" class="pt-32 pb-20 px-4">
         <div class="container mx-auto">
             <div class="flex flex-col lg:flex-row items-center">
-                <div class="lg:w-1/2 mb-12 lg:mb-0">
+                <div class="lg:w-1/2 mb-12 lg:mb-0 text-center lg:text-left">
                     <h1 class="text-4xl md:text-5xl lg:text-6xl font-semibold leading-tight mb-6">
                         Protección Digital <span class="gradient-text">Avanzada</span>
                     </h1>
                     <p class="text-xl text-gray-300 mb-8">
-                        Soluciones de ciberseguridad ofensiva y defensiva para individuos y empresas. Certificados, éticos y con responsabilidad social.
+                        Especialistas en ciberseguridad ofensiva y defensiva. Brindamos soluciones integrales para individuos y empresas, fundamentadas en la certificación profesional, la ética y la responsabilidad social.
                     </p>
-                    <div class="flex flex-wrap gap-4">
+                    <div class="flex flex-wrap gap-4 justify-center lg:justify-start">
                         <a href="#services" class="px-6 py-3 bg-purple-600 hover:bg-purple-700 rounded-md text-white font-medium transition glow-hover">
                             Explorar Servicios
                         </a>
@@ -562,33 +572,31 @@
                 </div>
                 <div class="lg:w-1/2">
                     <div class="bg-gray-800/50 rounded-xl p-8 border border-gray-700">
-                        <h3 class="text-2xl font-bold mb-6">Nuestros <span class="gradient-text">Números</span></h3>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div class="bg-gray-900/50 p-6 rounded-lg border border-gray-700">
-                                <div class="text-4xl font-bold text-purple-500 mb-2">0+</div>
-                                <div class="text-gray-300">Clientes Protegidos</div>
-                            </div>
-                            <div class="bg-gray-900/50 p-6 rounded-lg border border-gray-700">
-                                <div class="text-4xl font-bold text-purple-500 mb-2">0%</div>
-                                <div class="text-gray-300">Tasa de Satisfacción</div>
-                            </div>
-                            <div class="bg-gray-900/50 p-6 rounded-lg border border-gray-700">
-                                <div class="text-4xl font-bold text-purple-500 mb-2">0+</div>
-                                <div class="text-gray-300">Vulnerabilidades Detectadas</div>
-                            </div>
-                            <div class="bg-gray-900/50 p-6 rounded-lg border border-gray-700">
-                                <div class="text-4xl font-bold text-purple-500 mb-2">0+</div>
-                                <div class="text-gray-300">Casos Sociales Atendidos</div>
-                            </div>
-                        </div>
-                        
+                        <h3 class="text-2xl font-bold mb-6">Nuestro <span class="gradient-text">Compromiso Social</span></h3>
+                        <p class="text-gray-400 mb-4">
+                            Creemos firmemente que la seguridad digital es un derecho, no un privilegio. Por eso, dedicamos una parte significativa de nuestros recursos y tiempo de expertos para ofrecer apoyo gratuito y confidencial a personas que enfrentan situaciones de vulnerabilidad en el entorno digital.
+                        </p>
+                        <p class="text-gray-400 mb-6">
+                            Nuestro programa social se enfoca en asistir a víctimas de ciberacoso, doxing, suplantación de identidad y otras formas de violencia digital. No se trata solo de tecnología; es una cuestión de empatía, apoyo y restauración de la tranquilidad.
+                        </p>
                         <div class="mt-8 pt-6 border-t border-gray-700">
-                            <h4 class="font-bold mb-4">Nuestro Compromiso</h4>
-                            <p class="text-gray-400 mb-4">
-                                Creemos que la seguridad digital debe ser accesible para todos, no solo para quienes pueden pagarla. Por eso destinamos recursos propios a ayudar a quienes sufren acoso y amenazas en línea.
-                            </p>
+                            <h4 class="font-bold mb-4">¿Cómo ayudamos?</h4>
+                            <ul class="space-y-3 text-gray-400 mb-6">
+                                <li class="flex items-start">
+                                    <i class="fas fa-shield-alt text-purple-500 mr-3 mt-1"></i>
+                                    <span><strong>Asesoría Confidencial:</strong> Ofrecemos orientación sobre cómo documentar el acoso, asegurar cuentas y tomar los primeros pasos para detenerlo.</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-search-location text-purple-500 mr-3 mt-1"></i>
+                                    <span><strong>Análisis Técnico:</strong> Ayudamos a identificar el origen de las amenazas (dentro de los límites legales y éticos) y a preservar evidencia digital.</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-gavel text-purple-500 mr-3 mt-1"></i>
+                                    <span><strong>Soporte en Denuncias:</strong> Colaboramos con las víctimas para que puedan presentar denuncias formales ante las autoridades competentes con evidencia sólida.</span>
+                                </li>
+                            </ul>
                             <a href="#report" class="text-purple-500 hover:text-purple-400 font-medium inline-flex items-center">
-                                Conoce nuestro programa social <i class="fas fa-arrow-right ml-2"></i>
+                                Reporta un caso y obtén ayuda <i class="fas fa-arrow-right ml-2"></i>
                             </a>
                         </div>
                     </div>

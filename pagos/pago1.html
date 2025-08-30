@@ -69,15 +69,15 @@
     </style>
 </head>
 
-<body class="bg-purple-bg min-h-screen flex items-center justify-center p-4">
+<body class="bg-gray-900 min-h-screen flex items-center justify-center p-4 text-gray-300">
     <div class="w-full max-w-4xl mx-auto">
         <!-- Header -->
         <header class="text-center mb-8">
-            <h1 class="text-3xl md:text-4xl font-bold text-purple-primary">Helpxion Fortsent</h1>
-            <p class="text-gray-600 mt-2">Complete los detalles de su pago de forma segura</p>
+            <h1 class="text-3xl md:text-4xl font-bold text-white">Helpxion <span class="text-purple-primary">Fortsent</span></h1>
+            <p class="text-gray-400 mt-2">Complete los detalles de su pago de forma segura</p>
         </header>
 
-        <div class="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col md:flex-row">
+        <div class="bg-gray-800 rounded-xl shadow-2xl shadow-purple-500/10 overflow-hidden flex flex-col md:flex-row">
             <!-- Sección de información del servicio -->
             <div class="w-full md:w-2/5 bg-gradient-to-br from-purple-primary to-purple-secondary text-white p-6">
                 <div class="mb-6">
@@ -129,7 +129,7 @@
 
             <!-- Sección de formulario de pago -->
             <div class="w-full md:w-3/5 p-6">
-                <h2 class="text-2xl font-semibold text-gray-800 mb-6">Información de Pago</h2>
+                <h2 class="text-2xl font-semibold text-white mb-6">Información de Pago</h2>
 
                 <form id="payment-form">
                     <!-- Información personal -->
@@ -137,12 +137,12 @@
                         <h3 class="text-lg font-medium text-purple-primary mb-3">Datos Personales</h3>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div>
-                                <label class="block text-gray-700 mb-2" for="name">Nombre</label>
-                                <input type="text" id="name" class="input-field w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-purple-primary" placeholder="Juan Pérez">
+                                <label class="block text-gray-400 mb-2" for="name">Nombre</label>
+                                <input type="text" id="name" class="input-field w-full px-4 py-2 border bg-gray-700 border-gray-600 rounded-lg focus:outline-none focus:border-purple-primary text-white placeholder-gray-500" placeholder="Juan Pérez">
                             </div>
                             <div>
-                                <label class="block text-gray-700 mb-2" for="email">Correo Electrónico</label>
-                                <input type="email" id="email" class="input-field w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-purple-primary" placeholder="ejemplo@correo.com">
+                                <label class="block text-gray-400 mb-2" for="email">Correo Electrónico</label>
+                                <input type="email" id="email" class="input-field w-full px-4 py-2 border bg-gray-700 border-gray-600 rounded-lg focus:outline-none focus:border-purple-primary text-white placeholder-gray-500" placeholder="ejemplo@correo.com">
                             </div>
                         </div>
                     </div>
@@ -200,51 +200,48 @@
                         <!-- Formulario de tarjeta -->
                         <div class="space-y-4">
                             <div>
-                                <label class="block text-gray-700 mb-2" for="card-number">Número de Tarjeta</label>
-                                <input type="text" id="card-number" class="input-field w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-purple-primary" placeholder="1234 5678 9012 3456" maxlength="19" oninput="formatCardNumber(this)">
+                                <label class="block text-gray-400 mb-2" for="card-number">Número de Tarjeta</label>
+                                <input type="text" id="card-number" class="input-field w-full px-4 py-2 border bg-gray-700 border-gray-600 rounded-lg focus:outline-none focus:border-purple-primary text-white placeholder-gray-500" placeholder="1234 5678 9012 3456" maxlength="19" oninput="formatCardNumber(this)">
                             </div>
                             <div class="grid grid-cols-2 gap-4">
                                 <div>
-                                    <label class="block text-gray-700 mb-2" for="card-expiry">Fecha de Expiración</label>
-                                    <input type="text" id="card-expiry" class="input-field w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-purple-primary" placeholder="MM/AA" maxlength="5" oninput="formatExpiry(this)">
+                                    <label class="block text-gray-400 mb-2" for="card-expiry">Fecha de Expiración</label>
+                                    <input type="text" id="card-expiry" class="input-field w-full px-4 py-2 border bg-gray-700 border-gray-600 rounded-lg focus:outline-none focus:border-purple-primary text-white placeholder-gray-500" placeholder="MM/AA" maxlength="5" oninput="formatExpiry(this)">
                                 </div>
                                 <div>
-                                    <label class="block text-gray-700 mb-2" for="card-cvc">Código CVC</label>
-                                    <input type="text" id="card-cvc" class="input-field w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-purple-primary" placeholder="123" maxlength="3" oninput="updateCVC(this)">
+                                    <label class="block text-gray-400 mb-2" for="card-cvc">Código CVC</label>
+                                    <input type="text" id="card-cvc" class="input-field w-full px-4 py-2 border bg-gray-700 border-gray-600 rounded-lg focus:outline-none focus:border-purple-primary text-white placeholder-gray-500" placeholder="123" maxlength="3" oninput="updateCVC(this)">
                                 </div>
                             </div>
                             <div>
-                                <label class="block text-gray-700 mb-2" for="cardholder-name">Nombre del Titular</label>
-                                <input type="text" id="cardholder-name" class="input-field w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-purple-primary" placeholder="Como aparece en la tarjeta" oninput="updateCardName(this)">
+                                <label class="block text-gray-400 mb-2" for="cardholder-name">Nombre del Titular</label>
+                                <input type="text" id="cardholder-name" class="input-field w-full px-4 py-2 border bg-gray-700 border-gray-600 rounded-lg focus:outline-none focus:border-purple-primary text-white placeholder-gray-500" placeholder="Como aparece en la tarjeta" oninput="updateCardName(this)">
                             </div>
                         </div>
                     </div>
 
                     <!-- Botón de pago -->
                     <div class="mt-8">
-                        <button type="button" onclick="processPayment(this)" class="w-full bg-purple-primary hover:bg-purple-dark text-white py-3 px-4 rounded-lg font-medium transition duration-300 flex items-center justify-center">
-                            <i class="fas fa-lock mr-2"></i>
-                            Pagar $49.99 x 1 mes
-                        </button>
+                        <a href="https://buy.stripe.com/test_xxxxxxxxxxxxxx" target="_blank" class="w-full bg-purple-primary hover:bg-purple-dark text-white py-3 px-4 rounded-lg font-medium transition duration-300 flex items-center justify-center">
+                            <i class="fas fa-lock mr-2"></i> Pagar $49.99 x 1 mes
+                        </a>
                     </div>
 
                     <!-- Botón de pago -->
                     <div class="mt-8">
-                        <button type="button" onclick="processPayment(this)" class="w-full bg-purple-primary hover:bg-purple-dark text-white py-3 px-4 rounded-lg font-medium transition duration-300 flex items-center justify-center">
-                            <i class="fas fa-lock mr-2"></i>
-                            Pagar $245.99 x 6 meses
-                        </button>
+                        <a href="https://buy.stripe.com/test_yyyyyyyyyyyyyy" target="_blank" class="w-full bg-purple-primary hover:bg-purple-dark text-white py-3 px-4 rounded-lg font-medium transition duration-300 flex items-center justify-center">
+                            <i class="fas fa-lock mr-2"></i> Pagar $245.99 x 6 meses
+                        </a>
                     </div>
 
                     <!-- Botón de pago -->
                     <div class="mt-8">
-                        <button type="button" onclick="processPayment(this)" class="w-full bg-purple-primary hover:bg-purple-dark text-white py-3 px-4 rounded-lg font-medium transition duration-300 flex items-center justify-center">
-                            <i class="fas fa-lock mr-2"></i>
-                            Pagar $552.99 x 12 meses
-                        </button>
+                        <a href="https://buy.stripe.com/test_zzzzzzzzzzzzzz" target="_blank" class="w-full bg-purple-primary hover:bg-purple-dark text-white py-3 px-4 rounded-lg font-medium transition duration-300 flex items-center justify-center">
+                            <i class="fas fa-lock mr-2"></i> Pagar $552.99 x 12 meses
+                        </a>
                     </div>
 
-                    <div class="mt-4 text-center text-sm text-gray-600">
+                    <div class="mt-4 text-center text-sm text-gray-400">
                         <p>Al hacer clic en el botón, aceptas nuestros <a href="#" class="text-purple-primary hover:underline">Términos y Condiciones</a></p>
                     </div>
                 </form>
@@ -252,22 +249,22 @@
         </div>
 
         <!-- Métodos de pago alternativos -->
-        <div class="mt-6 bg-white rounded-xl shadow-lg p-6">
-            <h3 class="text-lg font-medium text-gray-800 mb-4">Métodos de pago alternativos</h3>
+        <div class="mt-6 bg-gray-800 rounded-xl shadow-lg p-6">
+            <h3 class="text-lg font-medium text-white mb-4">Métodos de pago alternativos</h3>
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                <div class="border border-gray-200 rounded-lg p-3 text-center cursor-pointer hover:border-purple-primary transition duration-300">
+                <div class="border border-gray-700 rounded-lg p-3 text-center cursor-pointer hover:border-purple-primary transition duration-300">
                     <i class="fab fa-paypal text-3xl text-blue-500"></i>
                     <p class="mt-2 text-sm">PayPal</p>
                 </div>
-                <div class="border border-gray-200 rounded-lg p-3 text-center cursor-pointer hover:border-purple-primary transition duration-300">
-                    <i class="fab fa-google-pay text-3xl text-gray-800"></i>
+                <div class="border border-gray-700 rounded-lg p-3 text-center cursor-pointer hover:border-purple-primary transition duration-300">
+                    <i class="fab fa-google-pay text-3xl text-gray-300"></i>
                     <p class="mt-2 text-sm">Google Pay</p>
                 </div>
-                <div class="border border-gray-200 rounded-lg p-3 text-center cursor-pointer hover:border-purple-primary transition duration-300">
-                    <i class="fab fa-apple-pay text-3xl text-gray-800"></i>
+                <div class="border border-gray-700 rounded-lg p-3 text-center cursor-pointer hover:border-purple-primary transition duration-300">
+                    <i class="fab fa-apple-pay text-3xl text-gray-300"></i>
                     <p class="mt-2 text-sm">Apple Pay</p>
                 </div>
-                <div class="border border-gray-200 rounded-lg p-3 text-center cursor-pointer hover:border-purple-primary transition duration-300">
+                <div class="border border-gray-700 rounded-lg p-3 text-center cursor-pointer hover:border-purple-primary transition duration-300">
                     <i class="fas fa-university text-3xl text-purple-primary"></i>
                     <p class="mt-2 text-sm">Transferencia</p>
                 </div>
@@ -329,27 +326,6 @@
         // Actualizar nombre en la tarjeta
         function updateCardName(input) {
             document.getElementById('card-name-display').textContent = input.value.toUpperCase() || 'NOMBRE EN LA TARJETA';
-        }
-
-        // Simular proceso de pago
-        function processPayment() {
-            const button = document.querySelector('button[onclick="processPayment()"]');
-            const originalText = button.innerHTML;
-
-            // Mostrar loading
-            button.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Procesando pago...';
-            button.disabled = true;
-
-            // Simular proceso de pago
-            setTimeout(() => {
-                // Éxito en el pago (simulado)
-                button.innerHTML = '<i class="fas fa-check-circle mr-2"></i> Pago realizado con éxito!';
-                button.classList.remove('bg-purple-primary', 'hover:bg-purple-dark');
-                button.classList.add('bg-green-500');
-
-                // Mensaje de agradecimiento
-                alert('¡Gracias por su compra! Su pago ha sido procesado con éxito.');
-            }, 2000);
         }
     </script>
 
