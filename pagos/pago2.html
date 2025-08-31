@@ -84,8 +84,8 @@
                     <h2 class="text-xl font-semibold mb-2">Detalles del Servicio</h2>
                     <div class="bg-white bg-opacity-20 p-4 rounded-lg">
                         <div class="flex justify-between items-center mb-3">
-                            <span id="plan-name">Cargando...</span>
-                            <span id="plan-price" class="font-bold"></span>
+                            <span>Empresa pequeña</span>
+                            <span class="font-bold">$299.9</span>
                         </div>
                         <div class="border-t border-white border-opacity-30 pt-3 mt-3 flex justify-between items-center font-bold text-lg">
 
@@ -95,11 +95,27 @@
 
                 <div>
                     <h2 class="text-xl font-semibold mb-2">Beneficios</h2>
-                    <ul id="benefits-list" class="space-y-2">
+                    <ul class="space-y-2">
                         <li class="flex items-center">
-                            <i class="fas fa-spinner fa-spin mr-2 text-purple-light"></i>
-                            <span>Cargando beneficios...</span>
+                            <i class="fas fa-check-circle mr-2 text-purple-light"></i>
+                            <span>Todo en Personal Plus</span>
                         </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle mr-2 text-purple-light"></i>
+                            <span>Pentest anual</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle mr-2 text-purple-light"></i>
+                            <span>Monitoreo de red básico</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle mr-2 text-purple-light"></i>
+                            <span>Respuesta rápida a incidentes</span>
+
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle mr-2 text-purple-light"></i>
+                                <span>1 Hasta 25 empleados</span>
+                            </li>
                     </ul>
                 </div>
 
@@ -116,9 +132,6 @@
                 <h2 class="text-2xl font-semibold text-white mb-6">Información de Pago</h2>
 
                 <form id="payment-form">
-                    <!-- Mensaje de estado -->
-                    <div id="status-message" class="text-center mb-4"></div>
-
                     <!-- Información personal -->
                     <div class="mb-6">
                         <h3 class="text-lg font-medium text-purple-primary mb-3">Datos Personales</h3>
@@ -207,10 +220,27 @@
                         </div>
                     </div>
 
-                    <!-- Botones de pago (se generarán dinámicamente) -->
-                    <div id="payment-buttons" class="space-y-4 mt-8">
-                        <p class="text-center"><i class="fas fa-spinner fa-spin mr-2"></i> Cargando opciones de pago...</p>
+                    <!-- Botón de pago -->
+                    <div class="mt-8">
+                        <a href="https://buy.stripe.com/test_4gM00i4KrbcXdHr7Sw3sI03" target="_blank" class="w-full bg-purple-primary hover:bg-purple-dark text-white py-3 px-4 rounded-lg font-medium transition duration-300 flex items-center justify-center">
+                            <i class="fas fa-lock mr-2"></i> Pagar $400.000,00 x 1 mes
+                        </a>
                     </div>
+
+
+                    <div class="mt-8">
+                        <a href="https://buy.stripe.com/test_28E00i5OvftdfPz1u83sI04" target="_blank" class="w-full bg-purple-primary hover:bg-purple-dark text-white py-3 px-4 rounded-lg font-medium transition duration-300 flex items-center justify-center">
+                            <i class="fas fa-lock mr-2"></i> Pagar $ 194.38 x 6 meses
+                        </a>
+                    </div>
+
+
+                    <div class="mt-8">
+                        <a href="https://buy.stripe.com/test_8x2dR890H80L9rbgp23sI05" target="_blank" class="w-full bg-purple-primary hover:bg-purple-dark text-white py-3 px-4 rounded-lg font-medium transition duration-300 flex items-center justify-center">
+                            <i class="fas fa-lock mr-2"></i> Pagar $4.500.000,00 x 12 meses
+                        </a>
+                    </div>
+
                     <div class="mt-4 text-center text-sm text-gray-400">
                         <p>Al hacer clic en el botón, aceptas nuestros <a href="#" class="text-purple-primary hover:underline">Términos y Condiciones</a></p>
                     </div>
@@ -297,127 +327,6 @@
         function updateCardName(input) {
             document.getElementById('card-name-display').textContent = input.value.toUpperCase() || 'NOMBRE EN LA TARJETA';
         }
-
-        // --- Lógica para cargar datos del plan y procesar pago ---
-        document.addEventListener('DOMContentLoaded', () => {
-            const planId = 2; // ID del plan "Empresa Pequeña"
-
-            const planNameEl = document.getElementById('plan-name');
-            const planPriceEl = document.getElementById('plan-price');
-            const benefitsListEl = document.getElementById('benefits-list');
-            const paymentButtonsEl = document.getElementById('payment-buttons');
-            const statusMessageEl = document.getElementById('status-message');
-
-            // Función para formatear precios a moneda local (COP)
-            const formatCurrency = (value) => {
-                return new Intl.NumberFormat('es-CO', {
-                    style: 'currency',
-                    currency: 'COP',
-                    minimumFractionDigits: 0
-                }).format(value);
-            };
-
-            // Cargar datos del plan desde la API
-            async function loadPlanData() {
-                try {
-                    const response = await fetch(`http://localhost:3000/api/plans/${planId}`);
-                    if (!response.ok) throw new Error('No se pudo cargar la información del plan.');
-
-                    const plan = await response.json();
-
-                    // Actualizar nombre y precio principal
-                    planNameEl.textContent = plan.name;
-                    planPriceEl.textContent = formatCurrency(plan.price_monthly);
-
-                    // Actualizar lista de beneficios
-                    benefitsListEl.innerHTML = ''; // Limpiar la lista
-                    plan.benefits.forEach(benefit => {
-                        const li = document.createElement('li');
-                        li.className = 'flex items-center';
-                        li.innerHTML = `<i class="fas fa-check-circle mr-2 text-purple-light"></i><span>${benefit}</span>`;
-                        benefitsListEl.appendChild(li);
-                    });
-
-                    // Generar botones de pago
-                    paymentButtonsEl.innerHTML = ''; // Limpiar
-                    const paymentOptions = [{
-                        period: '1 mes',
-                        price: plan.price_monthly,
-                        stripeId: plan.stripe_monthly_id
-                    }, {
-                        period: '6 meses',
-                        price: plan.price_semiannually,
-                        stripeId: plan.stripe_semiannually_id
-                    }, {
-                        period: '12 meses',
-                        price: plan.price_annually,
-                        stripeId: plan.stripe_annually_id
-                    }];
-
-                    paymentOptions.forEach(option => {
-                        const button = document.createElement('button');
-                        button.type = 'button'; // Importante para que no envíe el formulario por defecto
-                        button.className = 'w-full bg-purple-primary hover:bg-purple-dark text-white py-3 px-4 rounded-lg font-medium transition duration-300 flex items-center justify-center';
-                        button.innerHTML = `<i class="fas fa-lock mr-2"></i> Pagar ${formatCurrency(option.price)} x ${option.period}`;
-                        button.dataset.stripeUrl = `https://buy.stripe.com/${option.stripeId}`;
-
-                        button.addEventListener('click', handlePayment);
-                        paymentButtonsEl.appendChild(button);
-                    });
-
-                } catch (error) {
-                    planNameEl.textContent = 'Error';
-                    benefitsListEl.innerHTML = `<li class="text-red-400">${error.message}</li>`;
-                }
-            }
-
-            // Manejar el proceso de pago
-            async function handlePayment(event) {
-                const button = event.currentTarget;
-                const stripeUrl = button.dataset.stripeUrl;
-
-                const name = document.getElementById('name').value;
-                const email = document.getElementById('email').value;
-
-                if (!name || !email) {
-                    statusMessageEl.innerHTML = '<p class="text-red-400">Por favor, completa tu nombre y correo electrónico.</p>';
-                    return;
-                }
-
-                button.disabled = true;
-                button.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Procesando...';
-                statusMessageEl.innerHTML = '';
-
-                try {
-                    // Intentar crear el usuario en la base de datos
-                    const response = await fetch('http://localhost:3000/api/users', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify({
-                            name,
-                            email
-                        })
-                    });
-
-                    // Si el usuario ya existe (409) o se crea (201), es un éxito para nosotros.
-                    if (response.ok || response.status === 409) {
-                        // Redirigir a Stripe
-                        window.location.href = stripeUrl;
-                    } else {
-                        const result = await response.json();
-                        throw new Error(result.message || 'No se pudo procesar la información.');
-                    }
-                } catch (error) {
-                    statusMessageEl.innerHTML = `<p class="text-red-400">${error.message}</p>`;
-                    button.disabled = false;
-                    button.innerHTML = button.innerHTML.replace('Procesando...', 'Pagar'); // Restaurar texto original
-                }
-            }
-
-            loadPlanData();
-        });
     </script>
 
 </body>
