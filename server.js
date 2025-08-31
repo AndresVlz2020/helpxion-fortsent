@@ -10,8 +10,8 @@ const port = 3006;
 const dbConfig = {
     host: '127.0.0.1',
     user: 'root',
-    port: 3006, // El puerto de tu base de datos
-    password: '011919', // <-- ¡IMPORTANTE! Pon tu contraseña real aquí.
+    port: 3006,
+    password: '011919',
     database: 'helpxion_db'
 };
 
