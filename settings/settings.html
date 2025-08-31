@@ -114,25 +114,31 @@
                     <!-- == Perfil == -->
                     <div id="perfil" class="tab-panel space-y-8">
                         <div class="bg-card p-6 rounded-lg shadow-lg">
-                            <h2 class="text-xl font-bold mb-4">Información del Perfil</h2>
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                <div>
-                                    <label for="name" class="block mb-2 text-sm font-medium text-gray-400">Nombre Completo</label>
-                                    <input type="text" id="name" class="bg-primary border border-card/50 text-text text-sm rounded-lg focus:ring-accent focus:border-accent block w-full p-2.5 transition-colors duration-300" value="Admin User" required>
+                            <form id="profile-form">
+                                <h2 class="text-xl font-bold mb-4">Información del Perfil</h2>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    <div>
+                                        <label for="name" class="block mb-2 text-sm font-medium text-gray-400">Nombre Completo</label>
+                                        <input type="text" id="name" class="bg-primary border border-card/50 text-text text-sm rounded-lg focus:ring-accent focus:border-accent block w-full p-2.5 transition-colors duration-300" placeholder="Cargando..." required>
+                                    </div>
+                                    <div>
+                                        <label for="email" class="block mb-2 text-sm font-medium text-gray-400">Correo Electrónico</label>
+                                        <input type="email" id="email" class="bg-primary border border-card/50 text-text text-sm rounded-lg focus:ring-accent focus:border-accent block w-full p-2.5 transition-colors duration-300" placeholder="Cargando..." required>
+                                    </div>
+                                    <div>
+                                        <label for="phone" class="block mb-2 text-sm font-medium text-gray-400">Teléfono</label>
+                                        <input type="tel" id="phone" class="bg-primary border border-card/50 text-text text-sm rounded-lg focus:ring-accent focus:border-accent block w-full p-2.5 transition-colors duration-300" placeholder="Cargando..." required>
+                                    </div>
                                 </div>
-                                <div>
-                                    <label for="email" class="block mb-2 text-sm font-medium text-gray-400">Correo Electrónico</label>
-                                    <input type="email" id="email" class="bg-primary border border-card/50 text-text text-sm rounded-lg focus:ring-accent focus:border-accent block w-full p-2.5 transition-colors duration-300" value="admin@helpxion.com" required>
+                                <div class="flex justify-end mt-6">
+                                    <button type="submit" id="save-profile-button" class="bg-accent text-white font-bold py-2 px-6 rounded-lg hover:bg-opacity-80 transition-all duration-300">Guardar Cambios</button>
                                 </div>
-                                <div>
-                                    <label for="phone" class="block mb-2 text-sm font-medium text-gray-400">Teléfono</label>
-                                    <input type="tel" id="phone" class="bg-primary border border-card/50 text-text text-sm rounded-lg focus:ring-accent focus:border-accent block w-full p-2.5 transition-colors duration-300" value="+00 000 000 000" required>
-                                </div>
-                            </div>
+                            </form>
+                            <div id="profile-status" class="mt-4 text-center"></div>
                         </div>
 
                         <div class="bg-card p-6 rounded-lg shadow-lg flex flex-col sm:flex-row items-center gap-6">
-                            <img class="w-24 h-24 rounded-full object-cover" src="https://i.pravatar.cc/150?u=a042581f4e29026704d" alt="Avatar">
+                            <img id="avatar-image" class="w-24 h-24 rounded-full object-cover" src="https://i.pravatar.cc/150?u=a042581f4e29026704d" alt="Avatar">
                             <div>
                                 <h3 class="text-lg font-bold">Avatar</h3>
                                 <p class="text-sm text-gray-400 mb-3">Sube una nueva imagen de perfil.</p>
@@ -141,10 +147,6 @@
                                     Cambiar Avatar
                                 </label>
                             </div>
-                        </div>
-
-                        <div class="flex justify-end">
-                            <button class="bg-accent text-white font-bold py-2 px-6 rounded-lg hover:bg-opacity-80 transition-all duration-300">Guardar Cambios</button>
                         </div>
                     </div>
 
@@ -499,6 +501,88 @@
 
             // Revisa el hash si cambia (ej. botones de atrás/adelante del navegador)
             window.addEventListener('hashchange', checkHash);
+
+            // --- Lógica para el Perfil de Usuario ---
+            document.addEventListener('DOMContentLoaded', () => {
+                const userId = 1; // Hardcodeado por ahora. En una app real, vendría de la sesión.
+
+                const profileForm = document.getElementById('profile-form');
+                const nameInput = document.getElementById('name');
+                const emailInput = document.getElementById('email');
+                const phoneInput = document.getElementById('phone');
+                const avatarImage = document.getElementById('avatar-image');
+                const profileStatus = document.getElementById('profile-status');
+                const saveButton = document.getElementById('save-profile-button');
+
+                // 1. Cargar datos del usuario al iniciar
+                async function loadUserProfile() {
+                    try {
+                        const response = await fetch(`http://localhost:3000/api/users/${userId}`);
+                        if (!response.ok) {
+                            throw new Error('No se pudo cargar el perfil del usuario.');
+                        }
+                        const user = await response.json();
+
+                        nameInput.value = user.name || '';
+                        emailInput.value = user.email || '';
+                        phoneInput.value = user.phone || '';
+                        // Actualizar avatar basado en el email para tener una imagen consistente
+                        avatarImage.src = `https://i.pravatar.cc/150?u=${user.email}`;
+
+                    } catch (error) {
+                        profileStatus.innerHTML = `<p class="text-red-400">${error.message}</p>`;
+                        nameInput.value = 'Error al cargar';
+                        emailInput.value = 'Error al cargar';
+                        phoneInput.value = 'Error al cargar';
+                    }
+                }
+
+                // 2. Guardar cambios del perfil
+                if (profileForm) {
+                    profileForm.addEventListener('submit', async(e) => {
+                        e.preventDefault();
+
+                        saveButton.disabled = true;
+                        saveButton.textContent = 'Guardando...';
+                        profileStatus.innerHTML = '';
+
+                        const updatedData = {
+                            name: nameInput.value,
+                            email: emailInput.value,
+                            phone: phoneInput.value,
+                        };
+
+                        try {
+                            const response = await fetch(`http://localhost:3000/api/users/${userId}`, {
+                                method: 'PUT',
+                                headers: {
+                                    'Content-Type': 'application/json'
+                                },
+                                body: JSON.stringify(updatedData)
+                            });
+
+                            const result = await response.json();
+
+                            if (!response.ok) {
+                                throw new Error(result.message || 'Error al actualizar el perfil.');
+                            }
+
+                            profileStatus.innerHTML = `<p class="text-green-400">${result.message}</p>`;
+                            // Actualizar avatar si el email cambió
+                            avatarImage.src = `https://i.pravatar.cc/150?u=${updatedData.email}`;
+
+                        } catch (error) {
+                            profileStatus.innerHTML = `<p class="text-red-400">${error.message}</p>`;
+                        } finally {
+                            saveButton.disabled = false;
+                            saveButton.textContent = 'Guardar Cambios';
+                        }
+                    });
+                }
+
+                // Cargar el perfil cuando la página esté lista
+                loadUserProfile();
+            });
         };
     </script>
 </body>

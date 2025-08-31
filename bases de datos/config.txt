@@ -1,0 +1,7 @@
+[Sessions\Helpxion Local (Importado)]
+Host=127.0.0.1
+User=root
+Password=011919
+Port=3306
+NetType=0
+Databases=helpxion_db

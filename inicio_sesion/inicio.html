@@ -60,7 +60,10 @@
         </div>
 
         <!-- Formulario -->
-        <form action="#" method="POST" class="space-y-6">
+        <form id="login-form" class="space-y-6">
+
+            <!-- Mensaje de estado -->
+            <div id="status-message" class="text-center"></div>
 
             <!-- Campo de Correo Electrónico -->
             <div>
@@ -107,7 +110,7 @@
         <div>
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <a href="#" class="w-full inline-flex items-center justify-center py-3 px-4 border border-gray-600 rounded-lg shadow-sm bg-gray-700 text-sm font-medium text-gray-300 hover:bg-gray-600 transition duration-200">
-                    <i class="fab fa-google text-lg mr-3"></i> Google
+                    <img src="../assets/img/google.icon.png" alt="Icono de Google" class="w-5 h-5 mr-3"> Google
                 </a>
                 <a href="#" class="w-full inline-flex items-center justify-center py-3 px-4 border border-gray-600 rounded-lg shadow-sm bg-gray-700 text-sm font-medium text-gray-300 hover:bg-gray-600 transition duration-200">
                     <i class="fab fa-github text-lg mr-3"></i> GitHub
@@ -119,13 +122,67 @@
         <div class="mt-8 text-center">
             <p class="text-sm text-gray-400">
                 ¿Aún no tienes una cuenta?
-                <a href="#" class="font-bold text-principal hover:text-principal-dark transition duration-200">
+                <a href="registro.html" class="font-bold text-principal hover:text-principal-dark transition duration-200">
                     Regístrate aquí
                 </a>
             </p>
         </div>
     </div>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const loginForm = document.getElementById('login-form');
+            const statusMessage = document.getElementById('status-message');
+            const submitButton = loginForm.querySelector('button[type="submit"]');
+
+            loginForm.addEventListener('submit', async(event) => {
+                event.preventDefault(); // Evita que la página se recargue
+
+                const email = document.getElementById('email').value;
+                const password = document.getElementById('password').value;
+
+                // Mostrar estado de carga
+                submitButton.disabled = true;
+                submitButton.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Verificando...';
+                statusMessage.innerHTML = '';
+
+                try {
+                    const response = await fetch('http://localhost:3000/api/login', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            email,
+                            password
+                        }),
+                    });
+
+                    const result = await response.json();
+
+                    if (response.ok) {
+                        // Éxito
+                        statusMessage.innerHTML = `<p class="text-green-400">${result.message}</p>`;
+                        // Redirigir al panel de configuración después de un breve retraso
+                        setTimeout(() => {
+                            window.location.href = '../settings/settings.html';
+                        }, 1000);
+                    } else {
+                        // Error del servidor (ej: 401, 500)
+                        throw new Error(result.message || 'Ocurrió un error.');
+                    }
+                } catch (error) {
+                    statusMessage.innerHTML = `<p class="text-red-400">${error.message}</p>`;
+                } finally {
+                    // Reactivar el botón solo si no hubo un inicio de sesión exitoso
+                    if (!statusMessage.innerHTML.includes('green')) {
+                        submitButton.disabled = false;
+                        submitButton.innerHTML = 'Iniciar Sesión';
+                    }
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>
