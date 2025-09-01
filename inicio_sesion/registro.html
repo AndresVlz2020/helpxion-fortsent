@@ -5,182 +5,118 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro - Helpxion Fortsent</title>
-    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Font Awesome para iconos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Sansation:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
     <style>
-        /* Estilos personalizados y fuente */
-        
+        @import url('https://fonts.googleapis.com/css2?family=Sansation:wght@400;700&display=swap');
         body {
             font-family: 'Sansation', sans-serif;
         }
-        /* Clases personalizadas para usar con Tailwind */
         
-        .bg-principal {
-            background-color: #9333ea;
-        }
-        
-        .hover\:bg-principal-dark:hover {
-            background-color: #7e22ce;
-        }
-        
-        .text-principal {
-            color: #9333ea;
-        }
-        
-        .hover\:text-principal-dark:hover {
-            color: #7e22ce;
-        }
-        /* Estilos para el foco de los inputs, compatibles con Tailwind */
-        
-        .focus\:ring-principal:focus {
-            --tw-ring-opacity: 1;
-            --tw-ring-color: rgba(147, 51, 234, var(--tw-ring-opacity));
-            box-shadow: 0 0 0 3px var(--tw-ring-color);
-        }
-        
-        .focus\:border-principal:focus {
-            border-color: #9333ea;
+        .gradient-text {
+            background: -webkit-linear-gradient(#8B5CF6, #6D28D9);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
     </style>
 </head>
 
-<body class="bg-gray-900 flex items-center justify-center min-h-screen p-4">
-
-    <div class="bg-gray-800 p-8 md:p-10 rounded-xl shadow-2xl w-full max-w-md text-center">
-
-        <!-- Encabezado -->
-        <div class="mb-8">
-            <h1 class="text-5xl font-bold text-principal">Helpxion Fortsent</h1>
-            <p class="text-gray-400 mt-2">Crea tu cuenta para empezar.</p>
+<body class="bg-gray-900 text-gray-300 flex items-center justify-center min-h-screen p-4">
+    <div class="w-full max-w-md">
+        <div class="text-center mb-8">
+            <h1 class="text-3xl font-bold text-white">Crea tu cuenta en <span class="gradient-text">Helpxion Fortsent</span></h1>
+            <p class="text-gray-400 mt-2">Únete a nuestra plataforma segura</p>
         </div>
 
-        <!-- Formulario -->
-        <form id="register-form">
-            <!-- Mensaje de estado -->
-            <div id="status-message" class="text-center mb-4"></div>
+        <div class="bg-gray-800 rounded-xl shadow-2xl shadow-purple-500/10 p-8">
+            <form id="register-form" class="space-y-6">
+                <div>
+                    <label for="name" class="block text-sm font-medium text-gray-400 mb-2">Nombre Completo</label>
+                    <input type="text" id="name" name="name" required class="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-500">
+                </div>
+                <div>
+                    <label for="email" class="block text-sm font-medium text-gray-400 mb-2">Correo Electrónico</label>
+                    <input type="email" id="email" name="email" required class="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-500">
+                </div>
+                <div>
+                    <label for="password" class="block text-sm font-medium text-gray-400 mb-2">Contraseña</label>
+                    <input type="password" id="password" name="password" required class="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-500">
+                </div>
+                <div>
+                    <button type="submit" class="w-full bg-purple-600 hover:bg-purple-700 text-white py-3 px-4 rounded-lg font-medium transition duration-300 flex items-center justify-center">
+                        <i class="fas fa-user-plus mr-2"></i>
+                        Crear Cuenta
+                    </button>
+                </div>
+            </form>
 
-            <div class="space-y-5 text-left">
-                <div>
-                    <label for="username" class="text-sm font-medium text-gray-300">Nombre de Usuario</label>
-                    <input type="text" id="username" name="username" class="mt-1 w-full p-3 bg-gray-700 border border-gray-600 rounded-md text-white placeholder-gray-400 focus:outline-none focus:border-principal focus:ring-principal transition duration-200" placeholder="Tu nombre completo"
-                        required>
+            <div class="mt-6 relative">
+                <div class="absolute inset-0 flex items-center">
+                    <div class="w-full border-t border-gray-600"></div>
                 </div>
-                <div>
-                    <label for="email" class="text-sm font-medium text-gray-300">Correo Electrónico</label>
-                    <input type="email" id="email" name="email" class="mt-1 w-full p-3 bg-gray-700 border border-gray-600 rounded-md text-white placeholder-gray-400 focus:outline-none focus:border-principal focus:ring-principal transition duration-200" required>
-                </div>
-                <div>
-                    <label for="password" class="text-sm font-medium text-gray-300">Contraseña</label>
-                    <input type="password" id="password" name="password" class="mt-1 w-full p-3 bg-gray-700 border border-gray-600 rounded-md text-white placeholder-gray-400 focus:outline-none focus:border-principal focus:ring-principal transition duration-200" placeholder="Mínimo 6 caracteres"
-                        required>
-                </div>
-                <div>
-                    <label for="confirm-password" class="text-sm font-medium text-gray-300">Confirmar Contraseña</label>
-                    <input type="password" id="confirm-password" name="confirm-password" class="mt-1 w-full p-3 bg-gray-700 border border-gray-600 rounded-md text-white placeholder-gray-400 focus:outline-none focus:border-principal focus:ring-principal transition duration-200"
-                        placeholder="Repite la contraseña" required>
+                <div class="relative flex justify-center text-sm">
+                    <span class="px-2 bg-gray-800 text-gray-400">O regístrate con</span>
                 </div>
             </div>
 
-            <!-- Botón de envío -->
-            <button type="submit" class="w-full mt-8 py-3 text-lg font-bold text-white bg-principal rounded-md hover:bg-principal-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-principal transition duration-200">
-                Crear Cuenta
-            </button>
-        </form>
+            <div class="mt-6 grid grid-cols-2 gap-4">
+                <a href="/api/auth/google" class="w-full inline-flex justify-center items-center py-3 px-4 border border-gray-600 rounded-lg shadow-sm bg-gray-700 text-sm font-medium text-gray-300 hover:bg-gray-600">
+                    <img src="../assets/img/google.icon.png" alt="Logo de Google" class="w-5 h-5 mr-2"> Google
+                </a>
+                <a href="/api/auth/github" class="w-full inline-flex justify-center items-center py-3 px-4 border border-gray-600 rounded-lg shadow-sm bg-gray-700 text-sm font-medium text-gray-300 hover:bg-gray-600">
+                    <i class="fab fa-github mr-2 text-lg"></i> GitHub
+                </a>
+            </div>
 
-        <!-- Divisor -->
-        <div class="flex items-center my-8">
-            <hr class="flex-grow border-gray-600">
-            <span class="mx-4 text-gray-400 text-sm">O regístrate con</span>
-            <hr class="flex-grow border-gray-600">
+            <div class="mt-8 text-center text-sm text-gray-400">
+                <p>¿Ya tienes una cuenta? <a href="inicio.html" class="font-medium text-purple-400 hover:text-purple-300">Inicia sesión</a></p>
+            </div>
         </div>
-
-        <!-- Botones de Redes Sociales con Redirección -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <!-- En un escenario real, reemplaza "#" con tu URL de autenticación de Google -->
-            <a href="#" class="flex items-center justify-center gap-3 p-3 bg-gray-700 border border-gray-600 rounded-md hover:bg-gray-600 transition duration-200">
-                <img src="../assets/img/google.icon.png" alt="Icono de Google" class="w-5 h-5">
-                <span class="text-white font-medium">Google</span>
-            </a>
-            <!-- En un escenario real, reemplaza "#" con tu URL de autenticación de GitHub -->
-            <a href="#" class="flex items-center justify-center gap-3 p-3 bg-gray-700 border border-gray-600 rounded-md hover:bg-gray-600 transition duration-200">
-                <svg class="w-5 h-5" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="white"><title>GitHub</title><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
-                <span class="text-white font-medium">GitHub</span>
-            </a>
-        </div>
-
-        <!-- Enlace para iniciar sesión -->
-        <p class="mt-8 text-sm text-gray-400">
-            ¿Ya tienes una cuenta? <a href="./inicio.html" class="font-bold text-principal hover:text-principal-dark hover:underline">Inicia sesión aquí</a>
-        </p>
-
+        <div id="message" class="mt-4 text-center"></div>
     </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const registerForm = document.getElementById('register-form');
-            const statusMessage = document.getElementById('status-message');
-            const submitButton = registerForm.querySelector('button[type="submit"]');
+        const registerForm = document.getElementById('register-form');
+        const messageDiv = document.getElementById('message');
 
-            registerForm.addEventListener('submit', async(event) => {
-                event.preventDefault();
+        registerForm.addEventListener('submit', async(e) => {
+            e.preventDefault();
+            messageDiv.textContent = '';
+            messageDiv.className = 'mt-4 text-center';
 
-                const name = document.getElementById('username').value;
-                const email = document.getElementById('email').value;
-                const password = document.getElementById('password').value;
-                const confirmPassword = document.getElementById('confirm-password').value;
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
 
-                // Validación en el cliente
-                if (password !== confirmPassword) {
-                    statusMessage.innerHTML = '<p class="text-red-400">Las contraseñas no coinciden.</p>';
-                    return;
+            try {
+                const response = await fetch('/api/auth/register', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        name,
+                        email,
+                        password
+                    }),
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    messageDiv.textContent = '¡Registro exitoso! Redirigiendo al inicio de sesión...';
+                    messageDiv.classList.add('text-green-400');
+                    setTimeout(() => {
+                        window.location.href = 'inicio.html';
+                    }, 2000);
+                } else {
+                    messageDiv.textContent = data.message || 'Error en el registro.';
+                    messageDiv.classList.add('text-red-400');
                 }
-
-                // Mostrar estado de carga
-                submitButton.disabled = true;
-                submitButton.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Creando cuenta...';
-                statusMessage.innerHTML = '';
-
-                const API_BASE_URL = 'https://11a00f164ccc.ngrok-free.app';
-
-                try {
-                    const response = await fetch(`${API_BASE_URL}/api/register`, {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                        },
-                        body: JSON.stringify({
-                            name,
-                            email,
-                            password
-                        }),
-                    });
-
-                    const result = await response.json();
-
-                    if (response.ok) {
-                        statusMessage.innerHTML = `<p class="text-green-400">${result.message} Serás redirigido...</p>`;
-                        setTimeout(() => {
-                            window.location.href = './inicio.html'; // Redirigir a la página de inicio de sesión
-                        }, 2000);
-                    } else {
-                        throw new Error(result.message || 'Ocurrió un error al crear la cuenta.');
-                    }
-                } catch (error) {
-                    statusMessage.innerHTML = `<p class="text-red-400">${error.message}</p>`;
-                } finally {
-                    // Reactivar el botón solo si no hubo redirección exitosa
-                    if (!statusMessage.innerHTML.includes('green')) {
-                        submitButton.disabled = false;
-                        submitButton.innerHTML = 'Crear Cuenta';
-                    }
-                }
-            });
+            } catch (error) {
+                messageDiv.textContent = 'Error de conexión. Inténtalo de nuevo más tarde.';
+                messageDiv.classList.add('text-red-400');
+            }
         });
     </script>
 </body>
