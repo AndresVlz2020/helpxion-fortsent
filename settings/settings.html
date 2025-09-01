@@ -144,7 +144,7 @@
                         </div>
 
                         <div class="flex justify-end">
-                            <button class="bg-accent text-white font-bold py-2 px-6 rounded-lg hover:bg-opacity-80 transition-all duration-300">Guardar Cambios</button>
+                            <button id="save-profile-button" class="bg-accent text-white font-bold py-2 px-6 rounded-lg hover:bg-opacity-80 transition-all duration-300">Guardar Cambios</button>
                         </div>
                     </div>
 
@@ -499,6 +499,49 @@
 
             // Revisa el hash si cambia (ej. botones de atrás/adelante del navegador)
             window.addEventListener('hashchange', checkHash);
+
+            // --- Lógica de API para comunicarse con el Backend ---
+            const API_BASE_URL = 'https://11a00f164ccc.ngrok-free.app';
+
+            // Ejemplo: Guardar cambios del perfil
+            const saveProfileButton = document.getElementById('save-profile-button');
+            if (saveProfileButton) {
+                saveProfileButton.addEventListener('click', async() => {
+                    const name = document.getElementById('name').value;
+                    const email = document.getElementById('email').value;
+                    const phone = document.getElementById('phone').value;
+
+                    // Aquí puedes añadir validación de datos si es necesario
+
+                    try {
+                        // Usamos la URL base para construir la URL del endpoint
+                        const response = await fetch(`${API_BASE_URL}/api/profile`, {
+                            method: 'POST', // o 'PUT' si estás actualizando un recurso existente
+                            headers: {
+                                'Content-Type': 'application/json',
+                                // Aquí podrías añadir headers de autenticación, ej:
+                                // 'Authorization': 'Bearer TU_TOKEN_DE_AUTENTICACION'
+                            },
+                            body: JSON.stringify({
+                                name,
+                                email,
+                                phone
+                            }),
+                        });
+
+                        if (response.ok) {
+                            alert('Perfil actualizado con éxito.');
+                            // Opcional: mostrar un mensaje más elegante que un alert
+                        } else {
+                            const errorData = await response.json();
+                            alert(`Error al actualizar el perfil: ${errorData.message || 'Error desconocido'}`);
+                        }
+                    } catch (error) {
+                        console.error('Error al guardar el perfil:', error);
+                        alert('Ocurrió un error de red. Por favor, inténtalo de nuevo.');
+                    }
+                });
+            }
         };
     </script>
 </body>

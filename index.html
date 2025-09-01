@@ -181,8 +181,8 @@
 
                 <!-- CTA Buttons -->
                 <div class="hidden md:flex items-center space-x-4">
-                    <button onclick="window.location.href='#report'" class="px-4 py-2 bg-red-600 hover:bg-red-700 rounded-md text-white text-sm font-medium transition transform hover:scale-105 shadow-md hover:shadow-red-500/20">Reportar Caso</button>
-
+                    <button onclick="window.location.href='#report'" class="px-4 py-2 bg-red-600 hover:bg-red-700 rounded-md text-white text-sm font-medium transition transform hover:scale-105 shadow-md hover:shadow-red-500/20">Denuncia Gratis</button>
+                    <button onclick="window.location.href='inicio_sesion/inicio.html'" class="px-4 py-2 bg-purple-600 hover:bg-purple-700 rounded-md text-white text-sm font-medium transition transform hover:scale-105 shadow-md hover:shadow-purple-500/20">Iniciar Sesión</button>
 
                     <!-- Profile Dropdown -->
                     <div class="relative">
@@ -722,7 +722,7 @@
                         </p>
                     </div>
                     
-                    <form class="space-y-6">
+                    <form id="report-form" class="space-y-6">
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div>
                                 <label class="block text-gray-300 mb-2">Tipo de incidente *</label>
@@ -803,6 +803,7 @@
                             <button type="submit" class="w-full px-6 py-3 bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 rounded-md text-white font-medium transition transform hover:scale-105 shadow-lg hover:shadow-purple-500/30 flex items-center justify-center">
                                 <i class="fas fa-lock mr-2"></i> Enviar Reporte de Forma Segura
                             </button>
+                    <div id="report-status" class="mt-4 text-center"></div>
                 </div>
                 </form>
 
@@ -1179,7 +1180,7 @@
                 <p class="text-gray-400 mb-8">
                     Gestiona tus casos, reportes y servicios desde nuestra plataforma segura con autenticación multifactor.
                 </p>
-                <a href="inicio_sesion\inicio.html" class="px-8 py-3 bg-white hover:bg-gray-100 text-gray-900 rounded-md font-medium transition inline-flex items-center glow-hover">
+                <a href="inicio_sesion/inicio.html" class="px-8 py-3 bg-white hover:bg-gray-100 text-gray-900 rounded-md font-medium transition inline-flex items-center glow-hover">
                     <i class="fas fa-user-lock mr-2"></i> Iniciar Sesión
                 </a>
             </div>
@@ -1427,6 +1428,55 @@
             });
         }
 
+        // --- Lógica de API para comunicarse con el Backend ---
+        const API_BASE_URL = 'https://11a00f164ccc.ngrok-free.app';
+
+        // Script para el formulario de reporte de incidentes
+        const reportForm = document.getElementById('report-form');
+        const reportStatus = document.getElementById('report-status');
+
+        if (reportForm) {
+            reportForm.addEventListener('submit', async function(event) {
+                event.preventDefault();
+
+                const submitButton = reportForm.querySelector('button[type="submit"]');
+                const formData = {
+                    incidentType: reportForm.querySelector('select:nth-of-type(1)').value,
+                    severity: reportForm.querySelector('select:nth-of-type(2)').value,
+                    description: reportForm.querySelector('textarea').value,
+                    wantsFollowUp: reportForm.querySelector('input[name="followup"]:checked').value === 'yes',
+                    contactMethod: reportForm.querySelector('input[type="text"]').value,
+                };
+
+                submitButton.disabled = true;
+                submitButton.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Enviando Reporte...';
+                reportStatus.innerHTML = '';
+
+                try {
+                    const response = await fetch(`${API_BASE_URL}/api/report`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(formData)
+                    });
+
+                    const result = await response.json();
+                    if (response.ok) {
+                        reportStatus.innerHTML = `<p class="text-green-400">${result.message || 'Reporte enviado con éxito. Nos pondremos en contacto si proporcionaste un método.'}</p>`;
+                        reportForm.reset();
+                    } else {
+                        throw new Error(result.message || 'Ocurrió un error al enviar el reporte.');
+                    }
+                } catch (error) {
+                    reportStatus.innerHTML = `<p class="text-red-400">${error.message}</p>`;
+                } finally {
+                    submitButton.disabled = false;
+                    submitButton.innerHTML = '<i class="fas fa-lock mr-2"></i> Enviar Reporte de Forma Segura';
+                }
+            });
+        }
+
         // Script para el formulario de contacto
         const contactForm = document.getElementById('contact-form');
         const contactStatus = document.getElementById('contact-status');
@@ -1434,7 +1484,6 @@
         if (contactForm) {
             contactForm.addEventListener('submit', async function(event) {
                 event.preventDefault(); // Evita que la página se recargue
-
                 const name = document.getElementById('contact-name').value;
                 const email = document.getElementById('contact-email').value;
                 const subject = document.getElementById('contact-subject').value;
@@ -1447,7 +1496,7 @@
                 contactStatus.innerHTML = '';
 
                 try {
-                    const response = await fetch('http://localhost:3006/api/contact', {
+                    const response = await fetch(`${API_BASE_URL}/api/contact`, {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',
@@ -1464,7 +1513,7 @@
 
                     if (response.ok) {
                         // Éxito
-                        contactStatus.innerHTML = `<p class="text-green-400">${result.message}</p>`;
+                        contactStatus.innerHTML = `<p class="text-green-400">${result.message || 'Mensaje enviado con éxito.'}</p>`;
                         contactForm.reset(); // Limpiar el formulario
                     } else {
                         // Error del servidor (ej: 400, 500)
