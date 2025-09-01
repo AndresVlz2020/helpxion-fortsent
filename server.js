@@ -3,16 +3,18 @@ const mysql = require('mysql2/promise');
 const cors = require('cors');
 
 const app = express();
-const port = 3006;
+const port = 19366; // Cambiado a 19366 para evitar conflictos con MySQL
 
 // --- Configuración de la Base de Datos ---
 // Reemplaza con la contraseña que estableciste. Si no pusiste, déjala como ''.
 const dbConfig = {
-    host: '127.0.0.1',
-    user: 'root',
-    port: 3006,
-    password: '011919',
-    database: 'helpxion_db'
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD, // <-- No hay clave aquí
+    database: process.env.DB_DATABASE,
+    ssl: {
+        rejectUnauthorized: true
+    }
 };
 
 // --- Middlewares ---
