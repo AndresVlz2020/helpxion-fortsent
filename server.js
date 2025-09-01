@@ -7,12 +7,11 @@ const app = express();
 // --- Configuración de la Base de Datos ---
 // Apunta a tu base de datos local
 const dbConfig = {
-    host: '127.0.0.1',
-    user: 'root',
-    password: '011919', // O la contraseña de tu base de datos local
-    database: 'helpxion_db'
-};
-
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_DATABASE
+}
 const PORT = process.env.PORT || 3006;
 
 // --- Middlewares ---
