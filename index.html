@@ -1429,7 +1429,7 @@
         }
 
         // --- Lógica de API para comunicarse con el Backend ---
-        const API_BASE_URL = 'https://11a00f164ccc.ngrok-free.app';
+        const API_BASE_URL = 'https://9c8ed494ba60.ngrok-free.app';
 
         // Script para el formulario de reporte de incidentes
         const reportForm = document.getElementById('report-form');
@@ -1453,7 +1453,7 @@
                 reportStatus.innerHTML = '';
 
                 try {
-                    const response = await fetch(`${API_BASE_URL}/api/report`, {
+                    const response = await fetch(`${API_BASE_URL}/api/reports`, {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json'

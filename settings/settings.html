@@ -501,27 +501,62 @@
             window.addEventListener('hashchange', checkHash);
 
             // --- Lógica de API para comunicarse con el Backend ---
-            const API_BASE_URL = 'https://11a00f164ccc.ngrok-free.app';
+            const API_BASE_URL = 'https://9c8ed494ba60.ngrok-free.app';
+            let currentUser = null; // Variable para almacenar los datos del usuario
 
-            // Ejemplo: Guardar cambios del perfil
+            // Función para cargar los datos del perfil del usuario
+            async function loadUserProfile() {
+                try {
+                    const response = await fetch(`${API_BASE_URL}/api/user/profile`, {
+                        credentials: 'include' // Envía cookies para la autenticación de sesión
+                    });
+
+                    if (response.ok) {
+                        currentUser = await response.json();
+                        document.getElementById('name').value = currentUser.name || '';
+                        document.getElementById('email').value = currentUser.email || '';
+                        document.getElementById('phone').value = currentUser.phone || '';
+                        // Aquí se podría actualizar la imagen de perfil si la URL viene en la respuesta
+                        // document.querySelector('.object-cover').src = currentUser.avatarUrl || '../assets/img/user.jpg';
+                    } else if (response.status === 401) {
+                        // Si no está autenticado, redirigir al login
+                        alert('No estás autenticado. Redirigiendo al inicio de sesión...');
+                        window.location.href = '../inicio_sesion/inicio.html';
+                    } else {
+                        const errorData = await response.json();
+                        alert(`Error al cargar el perfil: ${errorData.message}`);
+                    }
+                } catch (error) {
+                    console.error('Error de red al cargar el perfil:', error);
+                    alert('Error de conexión. No se pudo cargar tu perfil.');
+                }
+            }
+
+            // Cargar el perfil cuando el DOM esté listo
+            document.addEventListener('DOMContentLoaded', loadUserProfile);
+
+
+            // Guardar cambios del perfil
             const saveProfileButton = document.getElementById('save-profile-button');
             if (saveProfileButton) {
                 saveProfileButton.addEventListener('click', async() => {
+                    if (!currentUser) {
+                        alert('No se han cargado los datos del usuario. Intenta recargar la página.');
+                        return;
+                    }
+
                     const name = document.getElementById('name').value;
                     const email = document.getElementById('email').value;
                     const phone = document.getElementById('phone').value;
 
-                    // Aquí puedes añadir validación de datos si es necesario
-
                     try {
-                        // Usamos la URL base para construir la URL del endpoint
-                        const response = await fetch(`${API_BASE_URL}/api/profile`, {
-                            method: 'POST', // o 'PUT' si estás actualizando un recurso existente
+                        // Usamos PUT para actualizar y el ID del usuario
+                        const response = await fetch(`${API_BASE_URL}/api/users/${currentUser.user_id}`, {
+                            method: 'PUT',
                             headers: {
                                 'Content-Type': 'application/json',
-                                // Aquí podrías añadir headers de autenticación, ej:
-                                // 'Authorization': 'Bearer TU_TOKEN_DE_AUTENTICACION'
                             },
+                            credentials: 'include', // Envía cookies para la autenticación de sesión
                             body: JSON.stringify({
                                 name,
                                 email,
@@ -530,8 +565,8 @@
                         });
 
                         if (response.ok) {
-                            alert('Perfil actualizado con éxito.');
-                            // Opcional: mostrar un mensaje más elegante que un alert
+                            const result = await response.json();
+                            alert(result.message || 'Perfil actualizado con éxito.');
                         } else {
                             const errorData = await response.json();
                             alert(`Error al actualizar el perfil: ${errorData.message || 'Error desconocido'}`);
